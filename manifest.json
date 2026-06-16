@@ -1,0 +1,22 @@
+{
+  "name": "Chan Ching Man & Co. 陳靜文律師事務所",
+  "short_name": "CCM Law",
+  "description": "A boutique law firm in Hong Kong providing tailor-made legal solutions since 2016.",
+  "start_url": "/chanchingman-website/",
+  "display": "standalone",
+  "background_color": "#1a2332",
+  "theme_color": "#1a2332",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

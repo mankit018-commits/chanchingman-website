@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a2332">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <title>Chan Ching Man & Co. 陳靜文律師事務所</title>
     <meta name="description" content="Chan Ching Man & Co. is a boutique law firm in Hong Kong providing comprehensive legal services including civil litigation, criminal litigation, corporate, family law, IP, conveyancing and wills & probate since 2016.">
     <meta property="og:title" content="Chan Ching Man & Co. 陳靜文律師事務所">
@@ -779,6 +782,9 @@ document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
 // Add fade-in to all sections
 document.querySelectorAll('section').forEach(s=>{ if(!s.classList.contains('hero')){s.classList.add('fade-in');observer.observe(s)} });
+
+// Register Service Worker
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 </script>
 </body>
 </html>
