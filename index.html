@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chan Ching Man & Co. 陳靜文律師事務所</title>
+    <meta name="description" content="Chan Ching Man & Co. is a boutique law firm in Hong Kong providing comprehensive legal services including civil litigation, criminal litigation, corporate, family law, IP, conveyancing and wills & probate since 2016.">
+    <meta property="og:title" content="Chan Ching Man & Co. 陳靜文律師事務所">
+    <meta property="og:description" content="A boutique law firm in Hong Kong providing tailor-made legal solutions since 2016.">
+    <meta property="og:image" content="https://static.wixstatic.com/media/239cc3_d33803472a27435d8aea919d755cca69~mv2.png">
+    <meta property="og:url" content="https://mankit018-commits.github.io/chanchingman-website/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--navy:#1a2332;--gold:#b8960c;--gold-light:#d4af37;--white:#fff;--light-bg:#f8f7f4;--text:#2c3e50;--text-light:#5a6c7d}
+        body.dark{--white:#1a1a2e;--light-bg:#16213e;--text:#e0e0e0;--text-light:#b0b0b0;--navy:#0f0f1a}
+        body.dark .practice-card,body.dark .team-card,body.dark .media-card,body.dark .blog-card,body.dark .faq-item,body.dark .testimonial-card{background:#1e2a3a;border-color:#2a3a4a}
+        body.dark nav{background:#0f0f1a}
+        body.dark footer{background:#0a0a15}
         html{scroll-behavior:smooth}
         body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6}
 
@@ -137,6 +148,47 @@
         .social-links a:hover{color:var(--gold-light)}
         footer p{font-size:.78rem}
 
+        /* Floating Buttons */
+        .float-btns{position:fixed;bottom:25px;right:25px;z-index:998;display:flex;flex-direction:column;gap:12px}
+        .float-btn{width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:transform .3s}
+        .float-btn:hover{transform:scale(1.1)}
+        .whatsapp-btn{background:#25d366}
+        .scroll-top-btn{background:var(--navy);cursor:pointer;border:none;color:#fff;font-size:1.2rem;opacity:0;pointer-events:none;transition:opacity .3s}
+        .scroll-top-btn.show{opacity:1;pointer-events:auto}
+
+        /* Dark Mode Toggle */
+        .theme-toggle{position:fixed;top:90px;left:20px;z-index:999;width:40px;height:40px;border-radius:50%;border:none;background:rgba(26,35,50,0.9);color:var(--gold-light);font-size:1rem;cursor:pointer;backdrop-filter:blur(10px);transition:all .3s}
+
+        /* Nav Active */
+        .nav-links a.active{color:var(--gold-light)}
+
+        /* FAQ */
+        .faq-grid{max-width:800px;margin:0 auto}
+        .faq-item{border:1px solid #eee;margin-bottom:12px;border-radius:4px;overflow:hidden}
+        .faq-q{padding:18px 25px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:.9rem;color:var(--navy);transition:background .3s}
+        .faq-q:hover{background:rgba(212,175,55,.05)}
+        .faq-q i{transition:transform .3s;color:var(--gold)}
+        .faq-item.active .faq-q i{transform:rotate(180deg)}
+        .faq-a{display:none;padding:0 25px 18px;font-size:.85rem;color:var(--text-light);line-height:1.8}
+        .faq-item.active .faq-a{display:block}
+
+        /* Testimonials */
+        .testimonials{background:var(--light-bg)}
+        .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:1000px;margin:0 auto}
+        .testimonial-card{background:var(--white);padding:30px;border-radius:4px;border:1px solid #eee;position:relative}
+        .testimonial-card::before{content:'\201C';font-size:4rem;color:var(--gold-light);opacity:.3;position:absolute;top:10px;left:20px;font-family:serif;line-height:1}
+        .testimonial-card p{font-size:.88rem;color:var(--text-light);line-height:1.8;margin-bottom:15px;padding-top:20px}
+        .testimonial-card .tc-author{font-size:.78rem;font-weight:600;color:var(--navy)}
+        .testimonial-card .tc-case{font-size:.72rem;color:var(--gold)}
+
+        /* Scroll Animation */
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+
+        /* Google Maps */
+        .map-container{margin-top:40px;max-width:900px;margin-left:auto;margin-right:auto;border-radius:4px;overflow:hidden}
+        .map-container iframe{width:100%;height:300px;border:0}
+
         /* Responsive */
         @media(max-width:768px){
             .nav-links{display:none;position:absolute;top:80px;left:0;width:100%;background:var(--navy);flex-direction:column;padding:2rem;gap:1.5rem}
@@ -159,6 +211,11 @@
             .contact-grid{grid-template-columns:1fr;gap:25px}
             .lang-toggle{top:85px;right:10px}
             .lang-btn{padding:6px 12px;font-size:.7rem}
+            .theme-toggle{top:85px;left:10px;width:35px;height:35px;font-size:.85rem}
+            .float-btns{bottom:15px;right:15px}
+            .float-btn{width:48px;height:48px;font-size:1.2rem}
+            .testimonial-grid{grid-template-columns:1fr}
+            .map-container iframe{height:220px}
             .nav-text h1{font-size:.9rem}
             .nav-text span{font-size:.6rem}
             .nav-logo{height:40px}
@@ -470,6 +527,74 @@
             <h4 class="cn">電郵</h4>
             <p><a href="mailto:info@chanchingman.com">info@chanchingman.com</a></p>
         </div>
+        <div class="contact-item">
+            <i class="fab fa-weixin"></i>
+            <h4>WeChat</h4>
+            <p style="margin-top:8px"><img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=chanchingman" alt="WeChat QR" style="width:120px;height:120px;border-radius:4px"></p>
+        </div>
+    </div>
+    <div class="map-container fade-in">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.8!2d114.165!3d22.279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404007b8c34bb69%3A0x2b2904e25a63c0!2sLippo%20Centre!5e0!3m2!1sen!2shk!4v1" allowfullscreen loading="lazy"></iframe>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="fade-in">
+    <div class="section-title">
+        <h2 class="en">Frequently Asked Questions</h2>
+        <h2 class="cn">常見問題</h2>
+        <div class="gold-line"></div>
+    </div>
+    <div class="faq-grid">
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-q"><span class="en-inline">Is the initial consultation free?</span><span class="cn-inline">初次諮詢是否免費？</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><span class="en">We offer an initial consultation to understand your case. Please contact us to discuss fees and arrangements.</span><span class="cn">我們提供初步諮詢以了解您的案件。請聯絡我們討論費用及安排。</span></div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-q"><span class="en-inline">How long does a typical case take?</span><span class="cn-inline">一般案件需要多長時間處理？</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><span class="en">The duration varies depending on case complexity. Simple matters may take weeks, while litigation can take months to years. We will provide a realistic timeline during our initial assessment.</span><span class="cn">處理時間視案件複雜程度而定。簡單事務可能需數星期，訴訟則可能需數月至數年。我們會在初步評估時提供合理的時間表。</span></div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-q"><span class="en-inline">What languages do you serve in?</span><span class="cn-inline">你們提供什麼語言服務？</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><span class="en">Our team is fluent in English, Cantonese, and Mandarin. We can serve clients in all three languages.</span><span class="cn">我們的團隊精通英語、廣東話及普通話，可以三種語言為客戶提供服務。</span></div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-q"><span class="en-inline">Do you handle cases outside Hong Kong?</span><span class="cn-inline">你們是否處理香港以外的案件？</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><span class="en">We primarily practice Hong Kong law but have experience in cross-border matters and can coordinate with overseas counsel when needed.</span><span class="cn">我們主要從事香港法律業務，但擁有處理跨境事務的經驗，並可在需要時與海外律師協調合作。</span></div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-q"><span class="en-inline">How do I make an appointment?</span><span class="cn-inline">如何預約諮詢？</span><i class="fas fa-chevron-down"></i></div>
+            <div class="faq-a"><span class="en">You can reach us by phone at +852 2689 0988, email info@chanchingman.com, or WhatsApp. We are happy to arrange a meeting at your convenience.</span><span class="cn">您可以致電 +852 2689 0988、電郵 info@chanchingman.com 或 WhatsApp 聯繫我們。我們樂意按您方便的時間安排會面。</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials fade-in" id="testimonials">
+    <div class="section-title">
+        <h2 class="en">Client Testimonials</h2>
+        <h2 class="cn">客戶評語</h2>
+        <div class="gold-line"></div>
+    </div>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <p class="en">"The team was incredibly responsive and professional. They explained complex legal matters in simple terms and achieved a favourable outcome for my case."</p>
+            <p class="cn">「團隊回覆非常迅速而且專業。他們用簡單易明的方式解釋複雜的法律事宜，並為我的案件取得了理想的結果。」</p>
+            <div class="tc-author"><span class="en-inline">Mr. W</span><span class="cn-inline">W先生</span></div>
+            <div class="tc-case"><span class="en-inline">Civil Litigation</span><span class="cn-inline">民事訴訟</span></div>
+        </div>
+        <div class="testimonial-card">
+            <p class="en">"Maggie and her team handled our company's trademark registration efficiently. Their expertise in IP law gave us complete confidence."</p>
+            <p class="cn">「Maggie 及其團隊高效地處理了我們公司的商標註冊。他們在知識產權法方面的專業知識讓我們完全放心。」</p>
+            <div class="tc-author"><span class="en-inline">Ms. L</span><span class="cn-inline">L小姐</span></div>
+            <div class="tc-case"><span class="en-inline">Intellectual Property</span><span class="cn-inline">知識產權</span></div>
+        </div>
+        <div class="testimonial-card">
+            <p class="en">"During a very difficult time, they provided compassionate and practical legal guidance for my divorce proceedings. Highly recommended."</p>
+            <p class="cn">「在一段非常艱難的時期，他們為我的離婚訴訟提供了充滿同理心且實用的法律指導。強烈推薦。」</p>
+            <div class="tc-author"><span class="en-inline">Mrs. C</span><span class="cn-inline">C太太</span></div>
+            <div class="tc-case"><span class="en-inline">Family & Matrimonial</span><span class="cn-inline">家庭及婚姻</span></div>
+        </div>
     </div>
 </section>
 
@@ -609,6 +734,15 @@
     <p style="margin-top:10px;font-size:.72rem"><a href="#terms" style="color:rgba(255,255,255,.6);text-decoration:none">Legal</a> | <a href="#privacy" style="color:rgba(255,255,255,.6);text-decoration:none">Privacy Policy</a></p>
 </footer>
 
+<!-- Dark Mode Toggle -->
+<button class="theme-toggle" onclick="document.body.classList.toggle('dark');this.innerHTML=document.body.classList.contains('dark')?'<i class=\'fas fa-sun\'></i>':'<i class=\'fas fa-moon\'></i>'"><i class="fas fa-moon"></i></button>
+
+<!-- Floating Buttons -->
+<div class="float-btns">
+    <a href="https://wa.me/85226890988" target="_blank" class="float-btn whatsapp-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <button class="float-btn scroll-top-btn" id="scrollTop" onclick="window.scrollTo({top:0})" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+</div>
+
 <script>
 function setLang(lang){
     document.body.classList.toggle('zh',lang==='zh');
@@ -618,6 +752,29 @@ function setLang(lang){
 function toggleDetail(card){
     card.querySelector('.practice-detail').classList.toggle('active');
 }
+
+// Scroll-to-top visibility
+window.addEventListener('scroll',function(){
+    document.getElementById('scrollTop').classList.toggle('show',window.scrollY>500);
+});
+
+// Nav active state on scroll
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',function(){
+    let current='';
+    sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)current=s.getAttribute('id')});
+    navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current)});
+});
+
+// Scroll fade-in animations
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// Add fade-in to all sections
+document.querySelectorAll('section').forEach(s=>{ if(!s.classList.contains('hero')){s.classList.add('fade-in');observer.observe(s)} });
 </script>
 </body>
 </html>
