@@ -1,5 +1,10 @@
-/* Chan Ching Man & Co. — Service Worker */
-const CACHE = 'ccm-v1';
+/* Chan Ching Man & Co. — Service Worker
+ * Update strategy: bump CACHE (e.g. ccm-v2 -> ccm-v3) on every deploy that
+ * changes cached assets. The 'activate' handler deletes all caches whose name
+ * is not the current CACHE, and skipWaiting()/clients.claim() make the new
+ * worker take over promptly so users do not get stuck on a stale version.
+ */
+const CACHE = 'ccm-v2';
 const ASSETS = [
   './',
   './index.html',

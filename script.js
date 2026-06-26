@@ -64,8 +64,15 @@ function closeLegal(){
         });
     }
 
-    // Make every clickable card keyboard-accessible
-    document.querySelectorAll('[onclick]').forEach(function(el){
+    // Language toggle buttons
+    document.querySelectorAll('.lang-btn[data-lang]').forEach(function(btn){
+        btn.addEventListener('click', function(){
+            setLang(btn.getAttribute('data-lang'), btn);
+        });
+    });
+
+    // Helper: make a non-button element behave like a button (keyboard + roles)
+    function makeKeyboardActivatable(el){
         if (el.tagName === 'BUTTON' || el.tagName === 'A') return;
         if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
         if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
@@ -76,13 +83,37 @@ function closeLegal(){
                 el.click();
             }
         });
+    }
+
+    // Practice cards: expand details
+    document.querySelectorAll('.practice-card').forEach(function(card){
+        makeKeyboardActivatable(card);
+        card.addEventListener('click', function(){ toggleDetail(card); });
     });
 
-    // Keep aria-expanded in sync for cards that toggle their own .active class
-    document.querySelectorAll('.team-card, .media-card, .blog-card').forEach(function(card){
+    // Team / media / blog cards: toggle active state + keep aria in sync
+    document.querySelectorAll('[data-card-toggle]').forEach(function(card){
+        makeKeyboardActivatable(card);
         card.addEventListener('click', function(){
-            card.setAttribute('aria-expanded', card.classList.contains('active') ? 'true' : 'false');
+            var open = card.classList.toggle('active');
+            card.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
+    });
+
+    // Legal modal triggers (open / switch tab / close)
+    document.querySelectorAll('[data-legal-open]').forEach(function(el){
+        el.addEventListener('click', function(e){
+            e.preventDefault();
+            openLegal(el.getAttribute('data-legal-open'));
+        });
+    });
+    document.querySelectorAll('[data-legal-tab]').forEach(function(el){
+        el.addEventListener('click', function(){
+            showLegalTab(el.getAttribute('data-legal-tab'));
+        });
+    });
+    document.querySelectorAll('[data-legal-close]').forEach(function(el){
+        el.addEventListener('click', function(){ closeLegal(); });
     });
 
     // Legal modal: close on backdrop click and Esc key

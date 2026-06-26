@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Security: Content-Security-Policy. NOTE: header-only protections
+         (X-Frame-Options / CSP frame-ancestors, X-Content-Type-Options,
+         Permissions-Policy) cannot be set via <meta> on GitHub Pages —
+         put the site behind a reverse proxy / CDN to add those HTTP headers. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'sha256-k7KaPxqVw8TPbb2jV6x2VX2B3YJdFgNm44uZ+bI3RSQ='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://static.wixstatic.com https://images.unsplash.com https://api.qrserver.com; frame-src https://www.google.com; connect-src 'self'; worker-src 'self'; manifest-src 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Chan Ching Man &amp; Co. 陳靜文律師事務所 | Hong Kong Solicitors</title>
     <meta name="description" content="Chan Ching Man &amp; Co. is a boutique Hong Kong law firm established in 2016, offering civil and criminal litigation, family law, intellectual property, conveyancing, wills &amp; probate and more. 陳靜文律師事務所為香港精品律師事務所，提供全面法律服務。">
     <meta name="keywords" content="Hong Kong solicitors, law firm, civil litigation, criminal litigation, intellectual property, conveyancing, wills, probate, family law, 香港律師, 律師事務所, 商標代理">
@@ -38,7 +45,7 @@
     <link rel="dns-prefetch" href="https://static.wixstatic.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- Structured data for search engines -->
     <script type="application/ld+json">
@@ -74,8 +81,8 @@
 
 <!-- Language Toggle -->
 <div class="lang-toggle" role="group" aria-label="Language / 語言">
-    <button type="button" class="lang-btn active" onclick="setLang('en', this)" aria-pressed="true" lang="en">EN</button>
-    <button type="button" class="lang-btn" onclick="setLang('zh', this)" aria-pressed="false" lang="zh-Hant">中</button>
+    <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true" lang="en">EN</button>
+    <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false" lang="zh-Hant">中</button>
 </div>
 
 <nav>
@@ -141,14 +148,14 @@
     <p class="practice-intro en">Since Chan Ching Man & Co. was established in 2016, we have provided a wide range of services to individuals and businesses. On every project we undertake, our most important objective is to relate with clients and understand their core necessities and goals.</p>
     <p class="practice-intro cn">自陳靜文律師事務所於2016年成立以來，我們為個人及企業提供廣泛的服務。在每一個項目中，我們最重要的目標是與客戶建立聯繫，了解他們的核心需求和目標。</p>
     <div class="practice-grid">
-        <div class="practice-card" onclick="toggleDetail(this)">
+        <div class="practice-card">
             <img class="card-img" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80" alt="Corporate">
             <h3>Corporate & Commercial<br><span class="cn-inline">公司及商業</span></h3>
             <div class="practice-detail">
                 <p>We provide services to our clients at different stages of their corporate lifetime to assist them when they come into operation, manage their existing business relationships, form fresh alliances, raise funds for growth and tap into new business opportunities. We also advise companies of all sizes, from domestic start-up businesses to large multinational listed companies. We provide professional legal advice on a broad spectrum of corporate and commercial work and have expertise in dealing with negotiation, preparing legal documentation and providing advice in relation to a wide variety of corporate and commercial transactions, frequently with a cross border dimension.</p>
             </div>
         </div>
-        <div class="practice-card" onclick="toggleDetail(this)">
+        <div class="practice-card">
             <img class="card-img" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=400&q=80" alt="Civil Litigation">
             <h3>Civil Litigation<br><span class="cn-inline">民事訴訟</span></h3>
             <div class="practice-detail">
@@ -167,7 +174,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card" onclick="toggleDetail(this)">
+        <div class="practice-card">
             <img class="card-img" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&q=80" alt="Criminal Litigation">
             <h3>Criminal Litigation<br><span class="cn-inline">刑事訴訟</span></h3>
             <div class="practice-detail">
@@ -183,7 +190,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card" onclick="toggleDetail(this)">
+        <div class="practice-card">
             <img class="card-img" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=400&q=80" alt="Family">
             <h3>Family & Matrimonial<br><span class="cn-inline">家庭及婚姻</span></h3>
             <div class="practice-detail">
@@ -196,7 +203,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card" onclick="toggleDetail(this)">
+        <div class="practice-card">
             <img class="card-img" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=400&q=80" alt="IP">
             <h3>Intellectual Property<br><span class="cn-inline">知識產權</span></h3>
             <div class="practice-detail">
@@ -214,7 +221,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card" onclick="toggleDetail(this)">
+        <div class="practice-card">
             <img class="card-img" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&q=80" alt="Conveyancing">
             <h3>Conveyancing<br><span class="cn-inline">物業轉讓</span></h3>
             <div class="practice-detail">
@@ -231,7 +238,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card" onclick="toggleDetail(this)">
+        <div class="practice-card">
             <img class="card-img" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" alt="Wills">
             <h3>Wills & Probate<br><span class="cn-inline">遺囑及遺產承辦</span></h3>
             <div class="practice-detail">
@@ -254,7 +261,7 @@
     </div>
     <div class="team-grid">
         <!-- Maggie Chan -->
-        <div class="team-card" onclick="this.classList.toggle('active')">
+        <div class="team-card" data-card-toggle>
             <img class="team-photo" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_8beb50208ebf407eb9196b58495d8bfc~mv2.jpg/v1/fill/w_650,h_990,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/mag2.jpg" alt="Ms. Maggie Chan">
             <div class="team-info">
                 <h3>Ms. Maggie Chan <span class="cn-inline">陳靜文律師</span></h3>
@@ -266,7 +273,7 @@
             </div>
         </div>
         <!-- Leon Chiu -->
-        <div class="team-card" onclick="this.classList.toggle('active')">
+        <div class="team-card" data-card-toggle>
             <img class="team-photo" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_66fc2a5827e14ee084ee1860faef6028~mv2.jpg/v1/crop/x_741,y_0,w_906,h_1365/fill/w_650,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/DSC00176_edited.jpg" alt="Mr. Leon Chiu">
             <div class="team-info">
                 <h3>Mr. Leon Chiu <span class="cn-inline">趙律師</span></h3>
@@ -278,7 +285,7 @@
             </div>
         </div>
         <!-- Alex Li -->
-        <div class="team-card" onclick="this.classList.toggle('active')">
+        <div class="team-card" data-card-toggle>
             <img class="team-photo" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_de9a8abf028b4a43902f58b5f657db17~mv2.jpg/v1/fill/w_650,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/DSC00940_%E5%89%AF%E6%9C%AC.jpg" alt="Mr. Alex Li">
             <div class="team-info">
                 <h3>Mr. Alex Li <span class="cn-inline">李律師</span></h3>
@@ -290,7 +297,7 @@
             </div>
         </div>
         <!-- John Wan -->
-        <div class="team-card" onclick="this.classList.toggle('active')">
+        <div class="team-card" data-card-toggle>
             <img class="team-photo" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_e8ce5fcc44d74f37afdbd881eded589f~mv2.png/v1/fill/w_624,h_951,al_c,q_90,enc_avif,quality_auto/DSC09287.png" alt="Mr. John Wan">
             <div class="team-info">
                 <h3>Mr. John Wan <span class="cn-inline">溫律師</span></h3>
@@ -302,7 +309,7 @@
             </div>
         </div>
         <!-- Tindy Kwong -->
-        <div class="team-card" onclick="this.classList.toggle('active')">
+        <div class="team-card" data-card-toggle>
             <img class="team-photo" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_aeae2a1ac42e4b5b838bed6de4533bee~mv2.jpeg/v1/fill/w_652,h_984,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202021-05-25%20at%2011_56_23%20PM.jpeg" alt="Mr. Tindy Kwong">
             <div class="team-info">
                 <h3>Mr. Tindy Kwong <span class="cn-inline">鄺先生</span></h3>
@@ -314,7 +321,7 @@
             </div>
         </div>
         <!-- Jayden Lee -->
-        <div class="team-card" onclick="this.classList.toggle('active')">
+        <div class="team-card" data-card-toggle>
             <img class="team-photo" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_ab290215c2274220891ea5a25a61ef98~mv2.jpg/v1/fill/w_592,h_951,al_c,q_85,enc_avif,quality_auto/DSC09272.jpg" alt="Mr. Jayden Lee">
             <div class="team-info">
                 <h3>Mr. Jayden Lee <span class="cn-inline">李先生</span></h3>
@@ -326,7 +333,7 @@
             </div>
         </div>
         <!-- Alan Ng -->
-        <div class="team-card" onclick="this.classList.toggle('active')">
+        <div class="team-card" data-card-toggle>
             <img class="team-photo" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_01e1161914924ea2a7d14eb19931a0dd~mv2.png/v1/crop/x_5,y_0,w_942,h_1426/fill/w_650,h_984,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/DSC09309.png" alt="Mr. Alan Ng">
             <div class="team-info">
                 <h3>Mr. Alan Ng <span class="cn-inline">吳先生</span></h3>
@@ -510,21 +517,21 @@
         <div class="gold-line"></div>
     </div>
     <div class="media-grid">
-        <div class="media-card" onclick="this.classList.toggle('active')">
+        <div class="media-card" data-card-toggle>
             <div class="media-icon"><i class="fas fa-video"></i></div>
             <h3>Interview by Corphub</h3>
             <p class="en">Featured interview discussing our firm's approach to legal services.</p>
             <p class="cn">專題訪問，討論本所的法律服務理念。</p>
             <div class="media-img"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_02ee3a917a1142ffb851538628eb44a6~mv2.jpg/v1/fill/w_626,h_1014,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/unnamed%20(1).jpg" alt="Corphub Interview"></div>
         </div>
-        <div class="media-card" onclick="this.classList.toggle('active')">
+        <div class="media-card" data-card-toggle>
             <div class="media-icon"><i class="fas fa-newspaper"></i></div>
             <h3 class="en">Sing Tao Daily</h3>
             <h3 class="cn">星島日報</h3>
             <p>12/4/2023</p>
             <div class="media-img"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_f0e0c8e0eef24edba1bef235e62f1768~mv2.jpg/v1/fill/w_642,h_513,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/239cc3_f0e0c8e0eef24edba1bef235e62f1768~mv2.jpg" alt="Sing Tao Daily"></div>
         </div>
-        <div class="media-card" onclick="this.classList.toggle('active')">
+        <div class="media-card" data-card-toggle>
             <div class="media-icon"><i class="fas fa-globe"></i></div>
             <h3>HKNET</h3>
             <p>12/4/2023</p>
@@ -541,26 +548,26 @@
         <div class="gold-line"></div>
     </div>
     <div class="blog-grid">
-        <div class="blog-card" onclick="this.classList.toggle('active')">
+        <div class="blog-card" data-card-toggle>
             <div class="blog-date">2023-05-30</div>
             <h3>法官都會放暑假？</h3>
             <p>每年的9月1日，除了是莘莘學子放完暑假後的開學日外，原來也是高等法院法官放假完暑假後的開庭日。根據《高等法院規則》第64號命令，原訟法庭及上訴法庭在每年的8月1日及8月31日期間休庭…</p>
             <div class="blog-img"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_e2196a7c295f403c98d11a3cce41cf4d~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/239cc3_e2196a7c295f403c98d11a3cce41cf4d~mv2.jpg" alt="法官都會放暑假"></div>
         </div>
-        <div class="blog-card" onclick="this.classList.toggle('active')">
+        <div class="blog-card" data-card-toggle>
             <div class="blog-date">2023-05-11</div>
             <h3>刑事訴訟 VS 民事訴訟</h3>
             <p>訴訟案件可以分為刑事訴訟和民事訴訟。香港的刑事訴訟是會由香港特區政府向法庭提出，申請向被控犯罪人士定罪及判刑，令他們為作出的違法行為繩之於法…</p>
             <div class="blog-img"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_ecaca9f7284e4f6b83b59cb04fbb323e~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/239cc3_ecaca9f7284e4f6b83b59cb04fbb323e~mv2.png" alt="刑事訴訟VS民事訴訟"></div>
         </div>
-        <div class="blog-card" onclick="this.classList.toggle('active')">
+        <div class="blog-card" data-card-toggle>
             <div class="blog-date">2023-05-11</div>
             <h3>事務律師 VS 大律師</h3>
             <p class="en">An overview of the differences between solicitors and barristers in Hong Kong's legal system.</p>
             <p class="cn">介紹香港法律制度中事務律師與大律師的分別。</p>
             <div class="blog-img"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/239cc3_83199115634a426baad552e016da7833~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/239cc3_83199115634a426baad552e016da7833~mv2.png" alt="事務律師VS大律師"></div>
         </div>
-        <div class="blog-card" onclick="this.classList.toggle('active')">
+        <div class="blog-card" data-card-toggle>
             <div class="blog-date">2023-05-11</div>
             <h3>撞車點算好? :(</h3>
             <p>發生交通事故時，司機須履行以下責任：1. 停車 — 《道路交通條例》第65(1)條訂明，凡因發生交通意外而對另一方造成傷害，或對附近另一車輛或物件造成損壞，司機必須停車…</p>
@@ -574,14 +581,14 @@
     <div class="legal-modal-box">
         <div class="legal-modal-header">
             <div class="legal-tabs" role="tablist">
-                <button type="button" class="legal-tab active" id="tab-terms" role="tab" aria-selected="true" aria-controls="panel-terms" onclick="showLegalTab('terms')">
+                <button type="button" class="legal-tab active" id="tab-terms" role="tab" aria-selected="true" aria-controls="panel-terms" data-legal-tab="terms">
                     <span class="en-inline">Terms &amp; Conditions</span><span class="cn-inline">條款及細則</span>
                 </button>
-                <button type="button" class="legal-tab" id="tab-privacy" role="tab" aria-selected="false" aria-controls="panel-privacy" onclick="showLegalTab('privacy')">
+                <button type="button" class="legal-tab" id="tab-privacy" role="tab" aria-selected="false" aria-controls="panel-privacy" data-legal-tab="privacy">
                     <span class="en-inline">Privacy Policy</span><span class="cn-inline">私隱政策</span>
                 </button>
             </div>
-            <button type="button" class="legal-close" aria-label="Close" onclick="closeLegal()">&times;</button>
+            <button type="button" class="legal-close" aria-label="Close" data-legal-close>&times;</button>
         </div>
         <div class="legal-modal-body">
 
@@ -920,7 +927,7 @@
         <a href="https://www.instagram.com/ccmsolicitors/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
     <p>&copy; 2024 Chan Ching Man & Co. 陳靜文律師事務所. All rights reserved.</p>
-    <p style="margin-top:10px;font-size:.72rem"><a href="#" onclick="openLegal('terms');return false;" style="color:rgba(255,255,255,.6);text-decoration:none"><span class="en-inline">Terms &amp; Conditions</span><span class="cn-inline">條款及細則</span></a> | <a href="#" onclick="openLegal('privacy');return false;" style="color:rgba(255,255,255,.6);text-decoration:none"><span class="en-inline">Privacy Policy</span><span class="cn-inline">私隱政策</span></a></p>
+    <p style="margin-top:10px;font-size:.72rem"><a href="#" data-legal-open="terms" style="color:rgba(255,255,255,.6);text-decoration:none"><span class="en-inline">Terms &amp; Conditions</span><span class="cn-inline">條款及細則</span></a> | <a href="#" data-legal-open="privacy" style="color:rgba(255,255,255,.6);text-decoration:none"><span class="en-inline">Privacy Policy</span><span class="cn-inline">私隱政策</span></a></p>
 </footer>
 
 <script src="script.js"></script>
