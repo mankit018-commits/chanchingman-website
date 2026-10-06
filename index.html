@@ -8,7 +8,7 @@
          (X-Frame-Options / CSP frame-ancestors, X-Content-Type-Options,
          Permissions-Policy) cannot be set via <meta> on GitHub Pages —
          put the site behind a reverse proxy / CDN to add those HTTP headers. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; worker-src 'self'; manifest-src 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; worker-src 'self'; manifest-src 'self'; form-action 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Chan Ching Man &amp; Co. 陳靜文律師事務所 | Hong Kong Solicitors</title>
     <meta name="description" content="Chan Ching Man &amp; Co. is a Hong Kong law firm acting for companies, banks and private clients in arbitration, commercial litigation, fraud and asset recovery and cross-border enforcement, and advising on corporate, compliance, trusts and private client matters since 2016. 陳靜文律師事務所為香港律師事務所，提供仲裁、爭議解決、公司顧問及私人客戶服務。">
@@ -43,11 +43,9 @@
     <meta name="twitter:description" content="Hong Kong dispute resolution, arbitration, corporate advisory and private client work since 2016.">
 
     <!-- Performance: establish early connections to font/CDN origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="images/site/hero-1200.jpg" imagesrcset="images/site/hero-800.jpg 800w, images/site/hero-1200.jpg 1200w, images/site/hero-1920.jpg 1920w" imagesizes="100vw" fetchpriority="high">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts.css">
 
     <!-- Structured data for search engines -->
     <script type="application/ld+json">
@@ -59,7 +57,6 @@
       "description": "A boutique Hong Kong law firm providing comprehensive, client-focused legal services since 2016.",
       "url": "https://www.chanchingman.com/",
       "telephone": "+852-2689-0988",
-      "email": "info@chanchingman.com",
       "foundingDate": "2016",
       "address": {
         "@type": "PostalAddress",
@@ -100,38 +97,34 @@
 <symbol id="i-instagram" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></symbol>
 </svg>
 
-<!-- Language Toggle -->
-<div class="lang-toggle" role="group" aria-label="Language / 語言">
-    <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true" lang="en">EN</button>
-    <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false" lang="zh-Hant">中</button>
-</div>
 
 <nav>
-    <div class="nav-brand">
+    <a class="nav-brand" href="#home" aria-label="Chan Ching Man &amp; Co. — Home">
         <img src="images/site/logo.png" alt="CCM Logo" class="nav-logo" decoding="async" width="69" height="46">
         <div class="nav-text">
             <h1>CHAN CHING MAN & CO.</h1>
             <span class="en">Solicitors · Agent for Trade Marks & Patents</span>
             <span class="cn">律師事務所 · 商標及專利代理</span>
         </div>
-    </div>
+    </a>
     <ul class="nav-links" id="navLinks">
-        <li><a href="#home"><span class="en-inline">Home</span><span class="cn-inline">主頁</span></a></li>
         <li><a href="#about"><span class="en-inline">About</span><span class="cn-inline">關於我們</span></a></li>
         <li><a href="#practice"><span class="en-inline">Practice Areas</span><span class="cn-inline">業務範疇</span></a></li>
         <li><a href="#experience"><span class="en-inline">Experience</span><span class="cn-inline">代表案例</span></a></li>
         <li><a href="#team"><span class="en-inline">Our Team</span><span class="cn-inline">我們的團隊</span></a></li>
         <li><a href="#awards"><span class="en-inline">Recognition</span><span class="cn-inline">獎項</span></a></li>
+        <li><a href="#media"><span class="en-inline">Insights</span><span class="cn-inline">媒體及知識</span></a></li>
         <li><a href="#contact"><span class="en-inline">Contact</span><span class="cn-inline">聯絡我們</span></a></li>
-        <li><a href="#faq"><span class="en-inline">FAQ</span><span class="cn-inline">常見問題</span></a></li>
-        <li><a href="#testimonials"><span class="en-inline">Reviews</span><span class="cn-inline">客戶評價</span></a></li>
-        <li><a href="#careers"><span class="en-inline">Careers</span><span class="cn-inline">招聘</span></a></li>
-        <li><a href="#media"><span class="en-inline">Media</span><span class="cn-inline">媒體</span></a></li>
-        <li><a href="#blog"><span class="en-inline">Legal Knowledge</span><span class="cn-inline">法律知識</span></a></li>
     </ul>
-    <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language / 語言">
+            <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true" lang="en">EN</button>
+            <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false" lang="zh-Hant">中</button>
+        </div>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
         <svg class="ico ico-bars" aria-hidden="true" focusable="false"><use href="#i-bars"/></svg>
     </button>
+    </div>
 </nav>
 
 <!-- Hero -->
@@ -144,7 +137,11 @@
         <h2 class="cn">度身訂造的法律方案<br>切合您的需要</h2>
         <p class="en">A boutique law firm in Hong Kong providing comprehensive legal services with a practical, client-focused approach since 2016.</p>
         <p class="cn">我們是一家位於香港的精品律師事務所，自2016年起提供全面的法律服務，以務實、以客為本的方針為客戶解決問題。</p>
-        <a href="mailto:info@chanchingman.com" class="btn"><span class="en-inline">Get in Touch</span><span class="cn-inline">聯絡我們</span></a>
+        <div class="hero-cta">
+            <a class="btn btn-primary" href="tel:+85226890988"><svg class="ico ico-phone" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span class="en-inline">Call +852 2689 0988</span><span class="cn-inline">致電 +852 2689 0988</span></a>
+            <a class="btn" href="https://wa.me/85226890988" target="_blank" rel="noopener"><svg class="ico ico-whatsapp" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg><span class="en-inline">WhatsApp</span><span class="cn-inline">WhatsApp 查詢</span></a>
+            <a class="btn" href="#enquiry"><span class="en-inline">Book a Consultation</span><span class="cn-inline">預約諮詢</span></a>
+        </div>
     </div>
 </section>
 
@@ -188,13 +185,14 @@
     </div>
     <p class="practice-intro en">Since Chan Ching Man & Co. was established in 2016, we have provided a wide range of services to individuals and businesses. On every project we undertake, our most important objective is to relate with clients and understand their core necessities and goals.</p>
     <p class="practice-intro cn">自陳靜文律師事務所於2016年成立以來，我們為個人及企業提供廣泛的服務。在每一個項目中，我們最重要的目標是與客戶建立聯繫，了解他們的核心需求和目標。</p>
-    <div class="practice-pillars">
-        <div class="pillar"><span>01</span><span class="en-inline">Dispute Resolution</span><span class="cn-inline">爭議解決</span></div>
-        <div class="pillar"><span>02</span><span class="en-inline">Corporate &amp; Advisory</span><span class="cn-inline">公司及顧問服務</span></div>
-        <div class="pillar"><span>03</span><span class="en-inline">Private Client &amp; IP</span><span class="cn-inline">私人客戶及知識產權</span></div>
+    <div class="practice-pillars" role="group" aria-label="Filter practice areas / 篩選業務範疇">
+        <button type="button" class="pillar active" data-filter="all" aria-pressed="true"><span class="en-inline">All</span><span class="cn-inline">全部</span></button>
+        <button type="button" class="pillar" data-filter="dispute" aria-pressed="false"><span class="pillar-no">01</span><span class="en-inline">Dispute Resolution</span><span class="cn-inline">爭議解決</span></button>
+        <button type="button" class="pillar" data-filter="corporate" aria-pressed="false"><span class="pillar-no">02</span><span class="en-inline">Corporate &amp; Advisory</span><span class="cn-inline">公司及顧問服務</span></button>
+        <button type="button" class="pillar" data-filter="private" aria-pressed="false"><span class="pillar-no">03</span><span class="en-inline">Private Client &amp; IP</span><span class="cn-inline">私人客戶及知識產權</span></button>
     </div>
     <div class="practice-grid">
-        <div class="practice-card">
+        <div class="practice-card" data-cat="dispute">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/arbitration.jpg" width="600" height="240" alt="Arbitration">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-1">Arbitration<br><span class="cn-inline">仲裁</span></button></h3>
             <div class="practice-detail" id="pd-1">
@@ -220,7 +218,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="dispute">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/fraud-and-asset-recovery.jpg" width="600" height="240" alt="Fraud and asset recovery">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-2">Fraud &amp; Asset Recovery<br><span class="cn-inline">詐騙及資產追討</span></button></h3>
             <div class="practice-detail" id="pd-2">
@@ -235,7 +233,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="dispute">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/cross-border-enforcement.jpg" width="600" height="240" alt="Cross-border enforcement">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-3">Cross-Border Enforcement<br><span class="cn-inline">跨境執行</span></button></h3>
             <div class="practice-detail" id="pd-3">
@@ -249,14 +247,14 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="corporate">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/corporate.jpg" width="600" height="240" alt="Corporate">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-4">Corporate & Commercial<br><span class="cn-inline">公司及商業</span></button></h3>
             <div class="practice-detail" id="pd-4">
                 <p>We provide services to our clients at different stages of their corporate lifetime to assist them when they come into operation, manage their existing business relationships, form fresh alliances, raise funds for growth and tap into new business opportunities. We also advise companies of all sizes, from domestic start-up businesses to large multinational listed companies. We provide professional legal advice on a broad spectrum of corporate and commercial work and have expertise in dealing with negotiation, preparing legal documentation and providing advice in relation to a wide variety of corporate and commercial transactions, frequently with a cross border dimension.</p>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="corporate">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/company-formation-and-business-relocation.jpg" width="600" height="240" alt="Company formation and business relocation">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-5">Company Formation &amp; Business Relocation<br><span class="cn-inline">公司成立及業務遷移</span></button></h3>
             <div class="practice-detail" id="pd-5">
@@ -266,7 +264,7 @@
                 <p class="cn mt-1"><strong>將業務遷移至香港。</strong>為遷移至香港或透過香港進行重組的企業提供服務：選擇實體及控股架構、轉移合約、僱傭及外派文件、工作簽證、開立銀行帳戶、租約，以及所屬行業所需的各項牌照。</p>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="corporate">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/trusts-funds-and-digital-assets.jpg" width="600" height="240" alt="Trusts, funds and digital assets">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-6">Trusts, Funds &amp; Digital Assets<br><span class="cn-inline">信託、基金及數字資產</span></button></h3>
             <div class="practice-detail" id="pd-6">
@@ -282,7 +280,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="corporate">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/compliance-and-sanctions.jpg" width="600" height="240" alt="Compliance and sanctions">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-7">Compliance &amp; Sanctions<br><span class="cn-inline">合規及制裁</span></button></h3>
             <div class="practice-detail" id="pd-7">
@@ -290,7 +288,7 @@
                 <p class="cn">為銀行及金融機構，以及受制裁影響的香港公司提供服務：交易對手及付款審查，以及反洗錢和客戶身分審查政策的檢視。</p>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="dispute">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/civil-litigation.jpg" width="600" height="240" alt="Civil Litigation">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-8">Civil Litigation<br><span class="cn-inline">民事訴訟</span></button></h3>
             <div class="practice-detail" id="pd-8">
@@ -309,7 +307,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="dispute">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/criminal-litigation.jpg" width="600" height="240" alt="Criminal Litigation">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-9">Criminal Litigation<br><span class="cn-inline">刑事訴訟</span></button></h3>
             <div class="practice-detail" id="pd-9">
@@ -325,7 +323,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="private">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/family.jpg" width="600" height="240" alt="Family">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-10">Family & Matrimonial<br><span class="cn-inline">家庭及婚姻</span></button></h3>
             <div class="practice-detail" id="pd-10">
@@ -340,7 +338,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="private">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/ip.jpg" width="600" height="240" alt="IP">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-11">Intellectual Property<br><span class="cn-inline">知識產權</span></button></h3>
             <div class="practice-detail" id="pd-11">
@@ -358,7 +356,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="private">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/conveyancing.jpg" width="600" height="240" alt="Conveyancing">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-12">Conveyancing<br><span class="cn-inline">物業轉讓</span></button></h3>
             <div class="practice-detail" id="pd-12">
@@ -375,7 +373,7 @@
                 </ul>
             </div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" data-cat="private">
             <img class="card-img" loading="lazy" decoding="async" src="images/practice/wills.jpg" width="600" height="240" alt="Wills">
             <h3><button type="button" class="practice-toggle" aria-expanded="false" aria-controls="pd-13">Wills & Probate<br><span class="cn-inline">遺囑及遺產承辦</span></button></h3>
             <div class="practice-detail" id="pd-13">
@@ -585,6 +583,38 @@
     </div>
 </section>
 
+<!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+    <div class="section-title">
+        <h2 class="en">Client Testimonials</h2>
+        <h2 class="cn">客戶評價</h2>
+        <div class="gold-line"></div>
+    </div>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="testimonial-stars" aria-hidden="true"><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
+            <p class="en">"Professional, responsive and genuinely caring. The team explained every step of my litigation clearly and put me at ease throughout."</p>
+            <p class="cn">「專業、回應迅速，而且真誠關懷。團隊把我訴訟的每一步都解釋得清清楚楚，全程讓我安心。」</p>
+            <span class="testimonial-author en">— Civil Litigation Client</span>
+            <span class="testimonial-author cn">— 民事訴訟客戶</span>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars" aria-hidden="true"><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
+            <p class="en">"They handled our company's trademark registration efficiently and gave us practical, commercially-minded advice. Highly recommended."</p>
+            <p class="cn">「他們高效處理我們公司的商標註冊，並提供切合商業實際的建議。極力推薦。」</p>
+            <span class="testimonial-author en">— Intellectual Property Client</span>
+            <span class="testimonial-author cn">— 知識產權客戶</span>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars" aria-hidden="true"><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
+            <p class="en">"Compassionate and clear during a difficult family matter. I always felt my interests were protected. Thank you for the support."</p>
+            <p class="cn">「在困難的家事案件中給予體諒和清晰指引，我一直感到自己的利益受到保障。感謝你們的支持。」</p>
+            <span class="testimonial-author en">— Family Law Client</span>
+            <span class="testimonial-author cn">— 家事法客戶</span>
+        </div>
+    </div>
+</section>
+
 <!-- Contact -->
 <section id="contact">
     <div class="section-title">
@@ -597,8 +627,8 @@
             <svg class="ico ico-map-marker-alt" aria-hidden="true" focusable="false"><use href="#i-map-marker-alt"/></svg>
             <h4 class="en">Address</h4>
             <h4 class="cn">地址</h4>
-            <p class="en">Unit 3203A, 32/F, Tower One,<br>Lippo Centre, 89 Queensway,<br>Admiralty, Hong Kong</p>
-            <p class="cn">香港金鐘道89號<br>力寶中心一座32樓3203A室</p>
+            <p class="en"><a href="https://www.google.com/maps/search/?api=1&amp;query=Lippo+Centre+Tower+One+89+Queensway+Admiralty+Hong+Kong" target="_blank" rel="noopener">Unit 3203A, 32/F, Tower One,<br>Lippo Centre, 89 Queensway,<br>Admiralty, Hong Kong</a></p>
+            <p class="cn"><a href="https://www.google.com/maps/search/?api=1&amp;query=Lippo+Centre+Tower+One+89+Queensway+Admiralty+Hong+Kong" target="_blank" rel="noopener">香港金鐘道89號<br>力寶中心一座32樓3203A室</a></p>
         </div>
         <div class="contact-item">
             <svg class="ico ico-phone" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
@@ -610,9 +640,48 @@
             <svg class="ico ico-envelope" aria-hidden="true" focusable="false"><use href="#i-envelope"/></svg>
             <h4 class="en">Email</h4>
             <h4 class="cn">電郵</h4>
-            <p><a href="mailto:info@chanchingman.com">info@chanchingman.com</a></p>
+            <p><a href="#enquiry" class="js-email" data-u="info" data-d="chanchingman.com">info [at] chanchingman.com</a></p>
         </div>
     </div>
+
+    <form class="enquiry-form" id="enquiry" novalidate>
+        <h3><span class="en-inline">Send us an enquiry</span><span class="cn-inline">網上查詢</span></h3>
+        <p class="form-note"><span class="en-inline">Tell us briefly what you need. Pressing the button opens your email app with the details filled in, ready to send to us. Nothing is stored on this website.</span><span class="cn-inline">請簡述您的需要。按下按鈕後會開啟您的電郵程式並自動填上內容，您確認後即可發送給我們。本網站不會儲存任何資料。</span></p>
+        <div class="form-row">
+            <label for="enq-name"><span class="en-inline">Name</span><span class="cn-inline">姓名</span> *</label>
+            <input id="enq-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-row">
+            <label for="enq-contact"><span class="en-inline">Phone or email</span><span class="cn-inline">電話或電郵</span> *</label>
+            <input id="enq-contact" name="contact" type="text" autocomplete="email" required>
+        </div>
+        <div class="form-row">
+            <label for="enq-matter"><span class="en-inline">Type of matter</span><span class="cn-inline">事項類別</span></label>
+            <select id="enq-matter" name="matter">
+                <option value="General enquiry">General enquiry 一般查詢</option>
+                <option value="Arbitration">Arbitration 仲裁</option>
+                <option value="Commercial dispute">Commercial dispute 商業糾紛</option>
+                <option value="Fraud and asset recovery">Fraud &amp; asset recovery 詐騙及資產追討</option>
+                <option value="Corporate and compliance">Corporate &amp; compliance 公司及合規</option>
+                <option value="Family and matrimonial">Family &amp; matrimonial 家事及婚姻</option>
+                <option value="Criminal">Criminal 刑事</option>
+                <option value="Wills and probate">Wills &amp; probate 遺囑及遺產</option>
+                <option value="Conveyancing">Conveyancing 物業轉讓</option>
+                <option value="Intellectual property">Intellectual property 知識產權</option>
+                <option value="Other">Other 其他</option>
+            </select>
+        </div>
+        <div class="form-row form-row-full">
+            <label for="enq-message"><span class="en-inline">Brief description</span><span class="cn-inline">簡述事項</span> *</label>
+            <textarea id="enq-message" name="message" rows="4" required></textarea>
+        </div>
+        <p class="form-error" id="enq-error" role="alert" hidden><span class="en-inline">Please fill in your name, a way to reach you and a short description.</span><span class="cn-inline">請填寫姓名、聯絡方式及簡述事項。</span></p>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><span class="en-inline">Prepare email</span><span class="cn-inline">準備電郵</span></button>
+            <a class="btn" href="https://wa.me/85226890988" target="_blank" rel="noopener"><svg class="ico ico-whatsapp" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg><span class="en-inline">Or WhatsApp us</span><span class="cn-inline">或 WhatsApp 我們</span></a>
+        </div>
+        <p class="form-note form-note-small"><span class="en-inline">Please do not include confidential details until we have confirmed we can act for you.</span><span class="cn-inline">在我們確認可代表您之前，請勿提供機密資料。</span></p>
+    </form>
 
     <div class="contact-extra">
         <div class="contact-map">
@@ -648,8 +717,8 @@
                 <svg class="ico ico-chevron-down" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg>
             </button>
             <div class="faq-a">
-                <p class="en">You may call us at +852 2689 0988 or email info@chanchingman.com to arrange an appointment. We will confirm a suitable time and let you know what documents to bring.</p>
-                <p class="cn">您可致電 +852 2689 0988 或電郵至 info@chanchingman.com 預約。我們會與您確認合適時間，並告知需要攜帶的文件。</p>
+                <p class="en">You may call us at +852 2689 0988 or email <span class="js-email" data-u="info" data-d="chanchingman.com">info [at] chanchingman.com</span> to arrange an appointment. We will confirm a suitable time and let you know what documents to bring.</p>
+                <p class="cn">您可致電 +852 2689 0988 或電郵至 <span class="js-email" data-u="info" data-d="chanchingman.com">info [at] chanchingman.com</span> 預約。我們會與您確認合適時間，並告知需要攜帶的文件。</p>
             </div>
         </div>
         <div class="faq-item">
@@ -699,37 +768,6 @@
     </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials" id="testimonials">
-    <div class="section-title">
-        <h2 class="en">Client Testimonials</h2>
-        <h2 class="cn">客戶評價</h2>
-        <div class="gold-line"></div>
-    </div>
-    <div class="testimonial-grid">
-        <div class="testimonial-card">
-            <div class="testimonial-stars" aria-hidden="true"><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
-            <p class="en">"Professional, responsive and genuinely caring. The team explained every step of my litigation clearly and put me at ease throughout."</p>
-            <p class="cn">「專業、回應迅速，而且真誠關懷。團隊把我訴訟的每一步都解釋得清清楚楚，全程讓我安心。」</p>
-            <span class="testimonial-author en">— Civil Litigation Client</span>
-            <span class="testimonial-author cn">— 民事訴訟客戶</span>
-        </div>
-        <div class="testimonial-card">
-            <div class="testimonial-stars" aria-hidden="true"><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
-            <p class="en">"They handled our company's trademark registration efficiently and gave us practical, commercially-minded advice. Highly recommended."</p>
-            <p class="cn">「他們高效處理我們公司的商標註冊，並提供切合商業實際的建議。極力推薦。」</p>
-            <span class="testimonial-author en">— Intellectual Property Client</span>
-            <span class="testimonial-author cn">— 知識產權客戶</span>
-        </div>
-        <div class="testimonial-card">
-            <div class="testimonial-stars" aria-hidden="true"><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico ico-star" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
-            <p class="en">"Compassionate and clear during a difficult family matter. I always felt my interests were protected. Thank you for the support."</p>
-            <p class="cn">「在困難的家事案件中給予體諒和清晰指引，我一直感到自己的利益受到保障。感謝你們的支持。」</p>
-            <span class="testimonial-author en">— Family Law Client</span>
-            <span class="testimonial-author cn">— 家事法客戶</span>
-        </div>
-    </div>
-</section>
 
 <!-- Careers -->
 <section class="careers" id="careers">
@@ -743,7 +781,7 @@
         <p class="cn">我們不時招聘具有良好學術資歷的見習律師。為配合廣泛的客戶群，我們尋找具有多元背景及開放思維的人才，願意挑戰傳統服務客戶的方式，為客戶創造更多價值。我們致力促進團隊成員的成長，確保他們發揮最大潛能，並提供一個鼓勵分享觀點、方法和想法的創新工作環境。</p>
         <p class="en mt-15">If you are a qualified legal professional who shares our vision and would like to form part of our collaborative and multidisciplinary team, we would love to hear from you.</p>
         <p class="cn mt-15">如果您是一位認同我們理念的合格法律專業人士，希望加入我們協作及多元化的團隊，我們期待您的聯繫。</p>
-        <p class="mt-15"><a href="mailto:maggie@chanchingman.com" class="btn"><span class="en-inline">Apply Now</span><span class="cn-inline">立即申請</span></a></p>
+        <p class="mt-15"><a href="#enquiry" class="btn js-email" data-u="maggie" data-d="chanchingman.com" data-keep-text><span class="en-inline">Apply Now</span><span class="cn-inline">立即申請</span></a></p>
     </div>
 </section>
 
@@ -760,19 +798,22 @@
             <h3>Interview by Corphub</h3>
             <p class="en">Featured interview discussing our firm's approach to legal services.</p>
             <p class="cn">專題訪問，討論本所的法律服務理念。</p>
+            <div class="media-more"><span class="en-inline">View clipping</span><span class="cn-inline">查看剪報</span></div>
             <div class="media-img"><img loading="lazy" decoding="async" src="images/site/239cc3_02ee3a917a1142ffb851538628eb44a6.jpg" width="626" height="1014" alt="Corphub Interview"></div>
         </div>
         <div class="media-card" data-card-toggle>
             <div class="media-icon"><svg class="ico ico-newspaper" aria-hidden="true" focusable="false"><use href="#i-newspaper"/></svg></div>
             <h3 class="en">Sing Tao Daily</h3>
             <h3 class="cn">星島日報</h3>
-            <p>12/4/2023</p>
+            <p class="media-source"><span class="en-inline">Newspaper · 12 Apr 2023</span><span class="cn-inline">報章 · 2023年4月12日</span></p>
+            <div class="media-more"><span class="en-inline">View clipping</span><span class="cn-inline">查看剪報</span></div>
             <div class="media-img"><img loading="lazy" decoding="async" src="images/site/239cc3_f0e0c8e0eef24edba1bef235e62f1768.jpg" width="642" height="513" alt="Sing Tao Daily"></div>
         </div>
         <div class="media-card" data-card-toggle>
             <div class="media-icon"><svg class="ico ico-globe" aria-hidden="true" focusable="false"><use href="#i-globe"/></svg></div>
             <h3>HKNET</h3>
-            <p>12/4/2023</p>
+            <p class="media-source"><span class="en-inline">Online news · 12 Apr 2023</span><span class="cn-inline">網上新聞 · 2023年4月12日</span></p>
+            <div class="media-more"><span class="en-inline">View clipping</span><span class="cn-inline">查看剪報</span></div>
             <div class="media-img"><img loading="lazy" decoding="async" src="images/site/239cc3_f0e0c8e0eef24edba1bef235e62f1768.jpg" width="642" height="513" alt="HKNET"></div>
         </div>
     </div>
@@ -787,29 +828,67 @@
     </div>
     <div class="blog-grid">
         <div class="blog-card" data-card-toggle>
-            <div class="blog-date">2023-05-30</div>
             <h3>法官都會放暑假？</h3>
-            <p>每年的9月1日，除了是莘莘學子放完暑假後的開學日外，原來也是高等法院法官放假完暑假後的開庭日。根據《高等法院規則》第64號命令，原訟法庭及上訴法庭在每年的8月1日及8月31日期間休庭…</p>
-            <div class="blog-img"><img loading="lazy" decoding="async" src="images/site/239cc3_e2196a7c295f403c98d11a3cce41cf4d.jpg" width="454" height="341" alt="法官都會放暑假"></div>
+            <p class="blog-summary">高等法院每年8月休庭——如果你要在夏天進行法律程序，有幾點要留意。</p>
+            <div class="blog-more"><span class="en-inline">Read article (Chinese)</span><span class="cn-inline">閱讀全文</span></div>
+            <div class="blog-full" lang="zh-Hant">
+                <p>每年的9月1日，除了是莘莘學子放完暑假後的開學日外，原來也是高等法院法官放假完暑假後的開庭日。</p>
+                <p>根據《高等法院規則》第64號命令，原訟法庭及上訴法庭在每年的8月1日及8月31日期間休庭，在休庭期間，原訟法庭及上訴法庭只會處理有限度事宜如禁制令申請、公司破產等，或終審法院首席法官決定有需要開庭即時或從速聆訊的訟案、事宜或申請。</p>
+                <p>根據《高等法院規則》第3號命令，除法庭另有指示外，在計算將任何狀書送達、送交存檔或修訂的期限時，夏天休庭期間不得計算在內。</p>
+                <p>如果你要在夏天期間於高等法院進行任何程序的話就要留意啦！</p>
+            </div>
         </div>
         <div class="blog-card" data-card-toggle>
-            <div class="blog-date">2023-05-11</div>
             <h3>刑事訴訟 VS 民事訴訟</h3>
-            <p>訴訟案件可以分為刑事訴訟和民事訴訟。香港的刑事訴訟是會由香港特區政府向法庭提出，申請向被控犯罪人士定罪及判刑，令他們為作出的違法行為繩之於法…</p>
-            <div class="blog-img"><img loading="lazy" decoding="async" src="images/site/239cc3_ecaca9f7284e4f6b83b59cb04fbb323e.jpg" width="454" height="341" alt="刑事訴訟VS民事訴訟"></div>
+            <p class="blog-summary">刑事與民事訴訟由誰提出、處理甚麼糾紛？一文看清兩者分別。</p>
+            <div class="blog-more"><span class="en-inline">Read article (Chinese)</span><span class="cn-inline">閱讀全文</span></div>
+            <div class="blog-full" lang="zh-Hant">
+                <p>訴訟案件可以分為刑事訴訟和民事訴訟。</p>
+                <h4>刑事訴訟</h4>
+                <p>香港的刑事訴訟是會由香港特區政府向法庭提出，申請向被控犯罪人士定罪及判刑，令他們為作出的違法行為繩之於法。本港的刑事檢控工作是由律政司司長全權負責，並不會受制於其他政府部門的任何指令，確保司法獨立。</p>
+                <p>而律政司在決定是否對案件檢控時主要會考慮以下兩點：</p>
+                <ul>
+                    <li>是否擁有充分證據支持起訴的法律程序？</li>
+                    <li>提出檢控是否符合公眾利益？</li>
+                </ul>
+                <p>簡單的檢控工作可以由警方或其他調查機構處理而不需律政司司長的介入，並可在裁判法院經由高級法庭檢控主任審閱。而嚴重的刑事罪案，例如謀殺、強姦、持械行劫等，一般會由高等法院原訟法庭法官會同陪審團進行審訊。</p>
+                <h4>民事訴訟</h4>
+                <p>香港特區政府或任何個人、機構、公司或組織向法庭提出，申請向香港特區政府或任何個人、機構、公司或組織索償，及其他指示解決各方的紛爭，包括有關合同、股東、僱傭、土地、租賃等糾紛。</p>
+                <p>民事訴訟案件主要包括合約法、侵權法、財產法、行政法、家事法及稅務法：</p>
+                <ul>
+                    <li>合約法關乎個人（包括公司）之間訂立的各種合約協議；</li>
+                    <li>侵權法關乎某人（如店家）在對另一人所負的謹慎責任上失職所引致的申索；</li>
+                    <li>財產法主要列明和規定對財產和知識產權（例如商標及版權）的擁有權等權利；</li>
+                    <li>行政法關乎個人權益的保障，防止政府機構濫用權力；</li>
+                    <li>家事法涉及離婚、子女管養權及財產分配等議題；</li>
+                    <li>稅務法是關乎評稅和追稅事宜。</li>
+                </ul>
+            </div>
         </div>
         <div class="blog-card" data-card-toggle>
-            <div class="blog-date">2023-05-11</div>
             <h3>事務律師 VS 大律師</h3>
-            <p class="en">An overview of the differences between solicitors and barristers in Hong Kong's legal system.</p>
-            <p class="cn">介紹香港法律制度中事務律師與大律師的分別。</p>
-            <div class="blog-img"><img loading="lazy" decoding="async" src="images/site/239cc3_83199115634a426baad552e016da7833.jpg" width="454" height="341" alt="事務律師VS大律師"></div>
+            <p class="blog-summary en">An overview of the differences between solicitors and barristers in Hong Kong's legal system.</p>
+            <p class="blog-summary cn">介紹香港法律制度中事務律師與大律師的分別。</p>
+            <div class="blog-more"><span class="en-inline">View infographic (Chinese)</span><span class="cn-inline">查看圖解</span></div>
+            <div class="blog-full"><img loading="lazy" decoding="async" src="images/site/239cc3_83199115634a426baad552e016da7833.jpg" width="454" height="341" alt="事務律師與大律師的分別（圖解）"></div>
         </div>
         <div class="blog-card" data-card-toggle>
-            <div class="blog-date">2023-05-11</div>
-            <h3>撞車點算好? :(</h3>
-            <p>發生交通事故時，司機須履行以下責任：1. 停車 — 《道路交通條例》第65(1)條訂明，凡因發生交通意外而對另一方造成傷害，或對附近另一車輛或物件造成損壞，司機必須停車…</p>
-            <div class="blog-img"><img loading="lazy" decoding="async" src="images/site/239cc3_cf1610ba0479414e81d69a67ce0d8f74.jpg" width="454" height="341" alt="撞車點算好"></div>
+            <h3>撞車點算好？</h3>
+            <p class="blog-summary">發生交通意外後，司機在法律上必須做的五件事。</p>
+            <div class="blog-more"><span class="en-inline">Read article (Chinese)</span><span class="cn-inline">閱讀全文</span></div>
+            <div class="blog-full" lang="zh-Hant">
+                <p>發生交通事故時，司機須履行以下責任：</p>
+                <h4>1. 停車</h4>
+                <p>《道路交通條例》第65(1)條訂明，凡因發生交通意外而對另一方造成傷害，或對附近另一車輛或物件造成損壞，司機必須停車。司機應在事故現場逗留一段足夠長的時間，以便任何人都可以從司機那裡獲取該駕駛者的相關詳情。</p>
+                <h4>2. 提供詳情</h4>
+                <p>根據《道路交通條例》第65(2)條，在發生意外時，司機有責任在被要求時向警務人員提供相關詳情，包括其姓名和地址、車主的姓名和地址，以及車輛的登記號碼。該職責屬於個人責任，因此司機必須親自提供相關詳情，而不能交託乘客提供有關詳情後自己離開現場。</p>
+                <h4>3. 報告意外</h4>
+                <p>如在事故現場沒有人可以讓司機提供詳情，司機則有責任根據《道路交通條例》第56(2A)條在事故發生後24小時內親自到最近的警署報案。</p>
+                <h4>4. 保存證據</h4>
+                <p>根據《道路交通條例》第57(1)條，在造成死亡或嚴重受傷或造成嚴重損壞的嚴重交通事故中，銷毀、更改或隱瞞任何證據均屬違法。</p>
+                <h4>5. 通知保險公司</h4>
+                <p>現時香港並沒有法律規定司機向保險公司報告事故。但是，大多數車輛保險政策都要求如果車主打算根據其保單索取賠償，發生意外後必須立即向保險公司報告事故。</p>
+            </div>
         </div>
     </div>
 </section>
@@ -980,169 +1059,38 @@
                 <h3 class="en">Privacy Policy</h3>
                 <h3 class="cn">私隱政策</h3>
                 <div class="legal-content">
-                    <h4 class="en">1. Collection and use of personal information</h4>
-                    <h4 class="cn">1. 收集和使用個人信息</h4>
+                    <p class="en"><em>Last updated: October 2026.</em> This notice explains what personal data Chan Ching Man &amp; Co. ("we", "us") handles through this website and how. It is given in accordance with the Personal Data (Privacy) Ordinance (Cap. 486) ("PDPO").</p>
+                    <p class="cn"><em>最後更新：2026年10月。</em>本聲明說明陳靜文律師事務所（「我們」）透過本網站處理哪些個人資料及如何處理，並按照《個人資料（私隱）條例》（第486章）（「私隱條例」）作出。</p>
 
-                    <h5 class="en">1.1 What information we collect</h5>
-                    <h5 class="cn">1.1 我們收集什麼信息</h5>
-                    <p class="en">Chan Ching Man & Co. ("we", "our" or "us", as appropriate) only obtain personal information about you if you choose to provide it — for example, supplying your information to us via mail, email or other electronic means or submitting an application for an employment opportunity or to register for certain services. In some cases, you may have previously provided your personal information to us (if, for example, you have previously made an application for employment to us). If you choose to register or login to our web site using a third party single sign-in service that authenticates your identity and connects your social media login information (e.g., LinkedIn, Google, Twitter or microblog, WeChat or QQ) with our web site, we will collect any information or content needed for the registration or log-in that you have permitted the social media provider to share with us, such as your name and email address. Other information we collect may depend on the privacy settings you have set with your social media provider, so please review the privacy statement or policy of the applicable service.</p>
-                    <p class="cn">陳靜文律師行（「我們」、「我們的」或「我們」，視情況而定）僅在您選擇提供有關您的個人信息時收集，例如，通過郵件、電子郵件或其他電子方式向我們提供您的信息，或提交就業申請或註冊某些服務。在某些情況下，您可能以前曾向我們提供過您的個人信息（例如，如果您先前已經向我們提出了求職申請）。如果您選擇使用第三方單點登錄服務註冊或登錄我們的網站，該服務可驗證您的身份並將您的社交媒體登錄信息（例如 LinkedIn、Google、Twitter 或微博、微信或 QQ）與我們的網站連接，我們將收集您允許社交媒體提供商與我們共享的註冊或登錄所需的任何信息或內容，例如您的姓名和電子郵件地址。我們收集的其他信息可能取決於您與社交媒體提供商設置的隱私設置，因此請查看適用服務的隱私聲明或政策。</p>
-                    <p class="en">By registering and/or submitting personal information to us, you are also acknowledging that we may use this information in accordance with this Privacy Statement. Your personal information is not used for other purposes, unless we obtain your permission, or unless otherwise required or permitted by law or professional standards. Information provided by you to us may be used to personalise your user experience. Where you register or login using a third party single user sign-in we may also recognize you as the same user across the different devices you use and personalise your user experience.</p>
-                    <p class="cn">通過向我們註冊和／或提交個人信息，您還承認我們可以根據本隱私聲明使用這些信息。您的個人信息不會被用於其他目的，除非我們獲得您的許可，或者除非法律或專業標準另有要求或許可。您提供給我們的信息可能會用於個性化您的用戶體驗。在使用第三方單用戶登錄進行註冊或登錄的地方，我們還可能會在您使用的不同設備上將您識別為同一用戶，並個性化您的用戶體驗。</p>
-                    <p class="en">In some cases where you have registered for certain services we may store your email address temporarily until we receive confirmation of the information you provided via an email (i.e. where we send an email to the email address provided as part of your registration to confirm a subscription request).</p>
-                    <p class="cn">在某些情況下，如果您已經註冊了某些服務，我們可能會暫時存儲您的電子郵件地址，直到我們通過電子郵件確認您提供的信息為止（即，我們向您註冊時提供的電子郵件地址發送電子郵件以確認訂閱請求）。</p>
+                    <h4 class="en">1. What this website collects</h4>
+                    <h4 class="cn">1. 本網站收集甚麼資料</h4>
+                    <p class="en">This website has no user accounts, logins, analytics, advertising or tracking cookies. It does not store any personal data on its server. Your language preference (English / Chinese) is saved only in your own browser (local storage) so the site remembers it on your next visit; you can clear it at any time through your browser settings.</p>
+                    <p class="cn">本網站沒有用戶帳戶、登入、分析工具、廣告或追蹤 cookies，亦不會在伺服器上儲存任何個人資料。您選擇的語言（英文／中文）只會儲存在您自己的瀏覽器（本機儲存）內，方便下次瀏覽時沿用；您可隨時透過瀏覽器設定清除。</p>
 
-                    <h5 class="en">1.2 The legal grounds we have to use your personal information</h5>
-                    <h5 class="cn">1.2 我們必須使用您的個人信息的法律依據</h5>
-                    <p class="en">We generally collect only the personal information necessary to fulfil your request. Where additional, optional information is sought, you will be notified of this at the point of collection.</p>
-                    <p class="cn">我們通常只收集滿足您要求所必需的個人信息。如果需要其他可選信息，將在收集時通知您。</p>
-                    <p class="en">The law in Hong Kong SAR allows us to process personal information, so long as we have a ground under the law to do so. It also requires us to tell you what those grounds are. As a result, when we process your personal information, we will rely on one of the following processing conditions:</p>
-                    <p class="cn">只要我們有法律依據，香港特別行政區的法律允許我們處理個人信息。它還要求我們告訴您這些理由是什麼。因此，當我們處理您的個人信息時，我們將依賴以下處理條件之一：</p>
-                    <ul class="en">
-                        <li><strong>Performance of a contract:</strong> this is when the processing of your personal information is necessary in order to perform our obligations under a contract;</li>
-                        <li><strong>Legal obligation:</strong> this is when we are required to process your personal information in order to comply with a legal obligation, such as keeping records for tax purposes or providing information to a public body or law enforcement agency;</li>
-                        <li><strong>Legitimate interests:</strong> we may process information about you where it is in our legitimate interest in running a lawful business to do so in order to further that business, so long as it doesn't outweigh your interests; or</li>
-                        <li><strong>Your consent:</strong> we may occasionally ask you for specific permission to process some of your personal information, and we will only process your personal information in this way if you agree to us doing so. You may withdraw your consent at any time by contacting us at <a href="mailto:info@chanchingman.com">info@chanchingman.com</a>.</li>
-                    </ul>
-                    <ul class="cn">
-                        <li><strong>履行合同：</strong>在這種情況下，有必要處理您的個人信息以履行我們在合同下的義務；</li>
-                        <li><strong>法律義務：</strong>這是當我們被要求處理您的個人信息以遵守法律義務時，例如出於稅務目的保留記錄或向公共機構或執法機構提供信息；</li>
-                        <li><strong>合法利益：</strong>只要不超過您的利益，我們可能會處理與您有關的信息，以開展合法業務、符合我們的合法利益，從而促進該業務的發展；或者</li>
-                        <li><strong>您的同意：</strong>我們有時可能會要求您獲得處理某些個人信息的特定許可，並且只有在您同意我們的情況下，我們才會以這種方式處理您的個人信息。您可以隨時通過 <a href="mailto:info@chanchingman.com">info@chanchingman.com</a> 與我們聯繫來撤回您的同意。</li>
-                    </ul>
-                    <p class="en">We only collect "sensitive" personal information when the relevant individuals voluntarily provide us with this information or where such information is required or permitted to be collected by professional standards. Under the current laws in Hong Kong, there is no differentiation of personal data that are sensitive from others. Guidance is taken from other jurisdictions. Generally, sensitive information includes personal information regarding a person's race, ethnicity, political beliefs, trade union membership, religious or similar beliefs, physical or mental health, sexual life or criminal record. Please use your discretion when providing sensitive information to us, and under any circumstances, do not provide sensitive information to us, unless you thereby consent to our use of that information for its legitimate business purposes and consent to the transfer and storage of such information to and in our databases. If you have any questions about whether the provision of sensitive information to us, please contact us.</p>
-                    <p class="cn">我們僅在相關個人自願向我們提供此信息時，或在按照專業標準要求或允許收集這些信息的情況下，才收集「敏感」個人信息。根據香港現行法律，沒有區分敏感數據與其他數據的區別。指導來自其他司法管轄區。通常，敏感信息包括有關人的種族、政治信仰、工會會員資格、宗教或類似信仰、身體或精神健康、性生活或犯罪記錄的個人信息。向我們提供敏感信息時，請謹慎使用，在任何情況下都不要向我們提供敏感信息，除非您由此同意我們出於合法商業目的使用該信息，並同意將此類信息傳輸和存儲到我們的數據庫中。如果您對是否向我們提供敏感信息有任何疑問，請與我們聯繫。</p>
+                    <h4 class="en">2. Enquiry form and contacting us</h4>
+                    <h4 class="cn">2. 查詢表格及聯絡我們</h4>
+                    <p class="en">The enquiry form does not send anything to us by itself. Pressing "Prepare email" opens your own email application with the details you typed filled in; nothing is sent until you choose to send that email. When you contact us by email, telephone, WhatsApp or WeChat, we receive the information you choose to give us, such as your name, contact details and a description of your matter.</p>
+                    <p class="cn">查詢表格本身不會向我們傳送任何資料。按下「準備電郵」只會開啟您自己的電郵程式並填入您輸入的內容，直至您決定發送該電郵前，不會有任何資料送出。當您以電郵、電話、WhatsApp 或微信聯絡我們，我們會收到您選擇提供的資料，例如姓名、聯絡方法及事項簡述。</p>
 
-                    <h5 class="en">1.3 Automatic collection of personal information</h5>
-                    <h5 class="cn">1.3 自動收集個人信息</h5>
-                    <p class="en">In some instances, we and our service providers use cookies, web beacons and other technologies to automatically collect certain types of information when you visit us online, as well as through emails that we may exchange. The collection of this information allows us to customise your online experience, improve the performance, usability and effectiveness of our online presence, and to measure the effectiveness of our marketing activities.</p>
-                    <p class="cn">在某些情況下，當您在線訪問我們以及通過我們可能交換的電子郵件時，我們和我們的服務提供商會使用 Cookie、網絡信標和其他技術來自動收集某些類型的信息。收集這些信息使我們能夠自定義您的在線體驗，提高我們在線狀態的性能、可用性和有效性，並衡量我們營銷活動的有效性。</p>
+                    <h4 class="en">3. How we use your information</h4>
+                    <h4 class="cn">3. 我們如何使用您的資料</h4>
+                    <p class="en">We use the information you provide only to respond to your enquiry, to check for conflicts of interest, to consider whether we can act for you and, if we are instructed, to provide legal services. Please do not send confidential details until we have confirmed that we can act for you. We do not sell your personal data or use it for direct marketing.</p>
+                    <p class="cn">我們只會使用您提供的資料以回覆您的查詢、進行利益衝突審查、考慮是否可代表您，以及在獲委託後提供法律服務。在我們確認可以代表您之前，請勿傳送機密資料。我們不會出售您的個人資料，亦不會將其用於直接促銷。</p>
 
-                    <h5 class="en">1.3.1 IP addresses</h5>
-                    <h5 class="cn">1.3.1 IP 地址</h5>
-                    <p class="en">An IP address is a number assigned to your computer whenever you access the internet. It allows computers and servers to recognise and communicate with one another. IP addresses from which visitors appear to originate may be recorded for IT security and system diagnostic purposes. This information may also be used in aggregate form to conduct web site trend and performance analysis.</p>
-                    <p class="cn">IP 地址是您每次訪問互聯網時分配給您計算機的號碼。它允許計算機和服務器相互識別並進行通信。出於 IT 安全和系統診斷目的，可能會記錄訪問者似乎來自的 IP 地址。此信息也可以以匯總形式用於進行網站趨勢和性能分析。</p>
+                    <h4 class="en">4. Third-party services</h4>
+                    <h4 class="cn">4. 第三方服務</h4>
+                    <p class="en">Fonts and images on this website are hosted on the website itself. The Google map in the Contact section loads only if you press "Show map"; Google then receives your IP address and browser information under Google's own privacy policy. Links to WhatsApp, WeChat, LinkedIn, Facebook and Instagram take you to those services, which handle your data under their own policies. The website is served by GitHub Pages, which may keep standard technical server logs (such as IP addresses) for security purposes.</p>
+                    <p class="cn">本網站的字型及圖片均由網站本身提供。「聯絡我們」部分的 Google 地圖只會在您按下「顯示地圖」後才載入；屆時 Google 會按其私隱政策收到您的 IP 地址及瀏覽器資料。WhatsApp、微信、LinkedIn、Facebook 及 Instagram 的連結會帶您前往該等服務，並由其按各自的政策處理您的資料。本網站由 GitHub Pages 提供，其可能為保安目的保留一般技術伺服器紀錄（例如 IP 地址）。</p>
 
-                    <h5 class="en">1.3.2 Cookies</h5>
-                    <h5 class="cn">1.3.2 Cookies</h5>
-                    <p class="en">Cookies may be placed on your computer or internet-enabled device whenever you visit us online. This allows the site to remember your computer or device and serves a number of purposes.</p>
-                    <p class="cn">每當您在線訪問我們時，Cookie 可能會放置在您的計算機或支持互聯網的設備上。這使站點可以記住您的計算機或設備，並具有多種用途。</p>
-                    <p class="en">On some of our web sites, a notification banner will appear requiring your consent to collect cookies. If you do not provide consent, your computer or internet-enabled device will not be tracked for marketing-related activities. A secondary type of cookie referred to as "user-input" cookies may still be required for necessary functionality. Such cookies will not be blocked through the use of this notification banner. Your selection will be saved in a cookie and is valid for a period of 90 days. If you wish to revoke your selection, you may do so by clearing your browser's cookies.</p>
-                    <p class="cn">在我們的某些網站上，會出現一個通知橫幅，要求您同意收集 cookie。如果您不同意，則不會跟踪您的計算機或支持互聯網的設備進行與營銷有關的活動。對於必要的功能，仍可能需要第二種類型的 cookie，即「用戶輸入」cookie。此類 Cookie 不會通過使用此通知橫幅而被阻止。您的選擇將保存在 Cookie 中，有效期為 90 天。如果您想撤消選擇，可以通過清除瀏覽器的 cookie 來撤消。</p>
-                    <p class="en">Although most browsers automatically accept cookies, you can choose whether or not to accept cookies via your browser's settings (often found in your browser's Tools or Preferences menu). You may also delete cookies from your device at any time. However, please be aware that if you do not accept cookies, you may not be able to fully experience some of our web sites' features. Further information as about managing cookies can be found in your browser's help file or through sites such as <a href="http://www.allaboutcookies.org" target="_blank" rel="noopener">www.allaboutcookies.org</a>.</p>
-                    <p class="cn">儘管大多數瀏覽器會自動接受 cookie，但是您可以通過瀏覽器的設置（通常在瀏覽器的「工具」或「首選項」菜單中找到）來選擇是否接受 cookie。您也可以隨時從設備中刪除 Cookie。但是，請注意，如果您不接受 Cookie，則可能無法完全體驗我們網站的某些功能。有關管理 cookie 的更多信息，可以在瀏覽器的幫助文件中或通過網站（如 <a href="http://www.allaboutcookies.org" target="_blank" rel="noopener">www.allaboutcookies.org</a>）找到。</p>
-                    <p class="en">Below is a list of the types of cookies used on our web sites:</p>
-                    <p class="cn">以下是我們網站上使用的 Cookie 的類型列表：</p>
-                    <ul class="en">
-                        <li><strong>Performance (i.e., User's Browser):</strong> our web sites are built using common internet platforms. These have built-in cookies which help compatibility issues (e.g., to identify your browser type) and improve performance (e.g., quicker loading of content).</li>
-                        <li><strong>Security (e.g. Asp .NET) Cookies:</strong> If you register for access to a restricted area, our cookies ensure that your device is logged for the duration of your visit. You will need your username and password to access the restricted areas.</li>
-                        <li><strong>Site Preferences:</strong> Our cookies may also remember your site preferences (e.g., language) or seek to enhance your experience (e.g., by personalising a greeting or content). This will apply to areas where you have registered specifically for access or create an account.</li>
-                        <li><strong>Analytical:</strong> We use several third party analytics tools to help us understand how site visitors use our web site. This allows us to improve the quality and content on our website for our visitors. The aggregated statistical data cover items such as total visits or page views, and referrers to our web sites.</li>
-                        <li><strong>Site visitor feedback:</strong> We use a third party survey tool to invite a percentage of visitors to provide their feedback. Cookies are used to prevent visitors from being invited multiple times.</li>
-                        <li><strong>Social sharing:</strong> We use third party social, media widgets or buttons to provide you with additional functionality to share content from our web pages to social media websites and email. We encourage you to review each provider's privacy information before using any such service.</li>
-                    </ul>
-                    <ul class="cn">
-                        <li><strong>性能（即用戶瀏覽器）：</strong>我們的網站是使用常見的互聯網平台構建的。它們具有內置的 cookie，可幫助解決兼容性問題（例如，標識您的瀏覽器類型）並提高性能（例如，更快地加載內容）。</li>
-                        <li><strong>安全性（例如 Asp .NET）Cookie：</strong>如果您註冊訪問受限區域，我們的 Cookie 將確保您在訪問期間記錄您的設備。您將需要您的用戶名和密碼才能訪問限制區域。</li>
-                        <li><strong>網站偏好設置：</strong>我們的 Cookie 可能還會記住您的網站偏好設置（例如語言）或試圖增強您的體驗（例如通過個性化問候或內容）。這將適用於您專門註冊以訪問或創建帳戶的區域。</li>
-                        <li><strong>分析性：</strong>我們使用幾種第三方分析工具來幫助我們了解網站訪問者如何使用我們的網站。這使我們能夠為訪問者改善網站上的質量和內容。統計數據匯總涵蓋諸如總訪問量或頁面瀏覽量以及對我們網站的引薦來源。</li>
-                        <li><strong>網站訪問者反饋：</strong>我們使用第三方調查工具來邀請一定比例的訪問者提供反饋。Cookies 用於防止多次邀請訪問者。</li>
-                        <li><strong>社交共享：</strong>我們使用第三方社交媒體小部件或按鈕為您提供其他功能，以將網頁上的內容共享到社交媒體網站和電子郵件。我們建議您在使用任何此類服務之前，先檢查每個提供商的隱私信息。</li>
-                    </ul>
-                    <p class="en">Cookies by themselves do not tell us your email address or otherwise identify you personally. In our analytical reports, we may obtain other identifiers including IP addresses, but this is for the purpose of identifying the number of unique visitors to our web sites and geographic origin of visitor trends, and not to identify individual visitors. BY NAVIGATING ON OUR WEB SITES OR ENTERING YOUR LOGIN DETAILS TO ACCESS AREAS RESERVED FOR REGISTERED USERS, YOU AGREE THAT WE CAN PLACE THESE COOKIES ON YOUR COMPUTER OR INTERNET ENABLED DEVICE.</p>
-                    <p class="cn">Cookies 本身不會告訴我們您的電子郵件地址或以其他方式識別您的個人身份。在我們的分析報告中，我們可能會獲得包括 IP 地址在內的其他標識符，但這是為了確定網站唯一身份訪問者的數量和訪問者趨勢的地理來源，而不是識別單個訪問者。通過瀏覽我們的網站或輸入您的登錄詳細信息來訪問為註冊用戶保留的區域，即表示您同意我們可以將這些 Cookie 放置在計算機或支持互聯網的設備上。</p>
+                    <h4 class="en">5. Retention, security and disclosure</h4>
+                    <h4 class="cn">5. 保留、保安及披露</h4>
+                    <p class="en">We keep enquiry and client information only as long as necessary for the purposes above and to meet our professional and legal obligations, and we take reasonable steps to protect it. We may disclose it where required by law, by a court or regulator, or to professionals we engage on your matter (such as counsel) under a duty of confidentiality.</p>
+                    <p class="cn">我們只會在上述目的及履行專業和法律責任所需的期間內保留查詢及客戶資料，並採取合理措施加以保護。如法律、法院或監管機構要求，或須向我們就您的事項委聘並負有保密責任的專業人士（例如大律師）披露，我們可能會披露有關資料。</p>
 
-                    <h5 class="en">1.3.3 Google Analytics</h5>
-                    <h5 class="cn">1.3.3 Google Analytics（分析）</h5>
-                    <p class="en">We use Google Analytics. More information about how Google Analytics is used by us can be found here: <a href="https://www.google.com/analytics/terms/us.html" target="_blank" rel="noopener">https://www.google.com/analytics/terms/us.html</a>. To provide website visitors with more choice on how their data is collected by Google Analytics, Google have developed the Google Analytics Opt-out Browser Add-on. The add-on communicates with the Google Analytics JavaScript (ga.js) to indicate that information about the website visit should not be sent to Google Analytics. The Google Analytics Opt-out Browser Add-on does not prevent information from being sent to the website itself or to other web analytics services.</p>
-                    <p class="cn">我們使用 Google Analytics（分析）。有關我們如何使用 Google Analytics（分析）的更多信息，請訪問以下網址：<a href="https://www.google.com/analytics/terms/us.html" target="_blank" rel="noopener">https://www.google.com/analytics/terms/us.html</a>。為了讓網站訪問者有更多選擇來了解 Google Analytics（分析）如何收集其數據，Google 開發了 Google Analytics（分析）退出瀏覽器插件。該插件與 Google Analytics（分析）JavaScript（ga.js）進行通信，指示不應將有關網站訪問的信息發送給 Google Analytics（分析）。Google Analytics（分析）退出瀏覽器加載項不會阻止信息發送到網站本身或其他 Web 分析服務。</p>
-
-                    <h5 class="en">1.3.4 Web beacons</h5>
-                    <h5 class="cn">1.3.4 Web 信標</h5>
-                    <p class="en">A web beacon is a small image file on a web page that can be used to collect certain information from your computer, such as an IP address, the time the content was viewed, a browser type, and the existence of cookies previously set by the same server. We only use web beacons in accordance with applicable laws. We and our service providers may use web beacons to track the effectiveness of third party web sites that provide us with recruiting or marketing services or to gather aggregate visitor statistics and manage cookies.</p>
-                    <p class="cn">網絡信標是網頁上的一個小圖像文件，可用於從您的計算機收集某些信息，例如 IP 地址、查看內容的時間、瀏覽器類型以及以前由同一台服務器設置的 cookie 的存在。我們僅根據適用法律使用網絡信標。我們和我們的服務提供商可能會使用網絡信標來跟踪向我們提供招聘或營銷服務的第三方網站的有效性，或者收集訪問者的匯總統計數據並管理 Cookie。</p>
-                    <p class="en">You have the option to render some web beacons unusable by rejecting their associated cookies. The web beacon may still record an anonymous visit from your IP address but cookie information will not be recorded. In some of our newsletters and other communications, we may monitor recipient actions such as email open rates through embedded links within the messages. We collect this information to gauge user interest and to enhance future user experiences.</p>
-                    <p class="cn">您可以通過拒絕關聯的 cookie 來使某些 Web 信標不可用。網絡信標可能仍會記錄您 IP 地址的匿名訪問，但不會記錄 Cookie 信息。在我們的一些新聞通訊和其他通訊中，我們可能會通過郵件中的嵌入式鏈接來監視收件人的操作，例如電子郵件打開率。我們收集這些信息以評估用戶的興趣並增強未來的用戶體驗。</p>
-
-                    <h5 class="en">1.3.5 Location-based tools</h5>
-                    <h5 class="cn">1.3.5 基於位置的工具</h5>
-                    <p class="en">We may collect and use the geographical location of your computer or mobile device. This location data is collected for the purpose of providing you with information regarding services which we believe may be of interest to you based on your geographic location, and to improve our location-based products and services.</p>
-                    <p class="cn">我們可能會收集和使用您的計算機或移動設備的地理位置。收集此位置數據的目的是根據您的地理位置為您提供有關我們認為您可能會感興趣的服務的信息，並改善我們基於位置的產品和服務。</p>
-
-                    <h5 class="en">1.4 Social media widgets and applications</h5>
-                    <h5 class="cn">1.4 社交媒體小部件和應用程序</h5>
-                    <p class="en">Our web sites may include functionality to enable sharing via third party social media applications, such as the Facebook, microblog, WeChat Like button and QQ, Twitter widget. These social media applications may collect and use information regarding your use of our web sites. Any personal information that you provide via such social media applications may be collected and used by other members of that social media application and such interactions are governed by the privacy policies of the companies that provide the application. We do not have control over, or responsibility for, those companies or their use of your information.</p>
-                    <p class="cn">我們的網站可能包含通過第三方社交媒體應用程序（例如 Facebook、微博、「喜歡微信」按鈕以及 QQ、Twitter 小部件）進行共享的功能。這些社交媒體應用程序可能會收集和使用有關您對我們網站使用情況的信息。您通過此類社交媒體應用程序提供的任何個人信息可能會被該社交媒體應用程序的其他成員收集和使用，並且此類互動受提供該應用程序的公司的隱私權政策約束。我們對這些公司或其對您信息的使用沒有控制權或責任。</p>
-                    <p class="en">In addition, our web sites may host blogs, forums, crowd-sourcing and other applications or services (collectively "social media features"). The purpose of social media features is to facilitate the sharing of knowledge and content. Any personal information that you provide on any social media feature may be shared with other users of that social media feature (unless otherwise stated at the point of collection), over whom we may have limited or no control.</p>
-                    <p class="cn">此外，我們的網站可能託管博客、論壇、眾包和其他應用程序或服務（統稱為「社交媒體功能」）。社交媒體功能的目的是促進知識和內容的共享。您在任何社交媒體功能上提供的任何個人信息可能會與該社交媒體功能的其他用戶共享（除非在收集時另有說明），我們可能對此控制有限或無法控制。</p>
-
-                    <h5 class="en">1.5 Minors</h5>
-                    <h5 class="cn">1.5 未成年人</h5>
-                    <p class="en">We understand the importance of protecting minors' privacy, especially in an online environment. In particular, our sites are not intentionally designed for or directed at minors under the age of 18. It is our policy never to knowingly collect or maintain information about anyone under the age of 18, except as part of an engagement to provide professional services.</p>
-                    <p class="cn">我們了解保護未成年人隱私的重要性，尤其是在在線環境中。尤其是，我們的網站並非故意為 18 歲以下的未成年人設計或針對其設計的。我們的政策是，除非作為提供專業服務的一部分，否則我們切勿有意收集或維護有關 18 歲以下任何人的信息。</p>
-
-                    <h4 class="en">2. Sharing and transfer of personal information</h4>
-                    <h4 class="cn">2. 分享和轉移個人信息</h4>
-                    <h5 class="en">2.1 Transfers to third parties</h5>
-                    <h5 class="cn">2.1 轉讓給第三方</h5>
-                    <p class="en">We do not share personal information with unaffiliated third parties, except as necessary for our legitimate professional and business needs, to carry out your requests, and/or as required or permitted by law or professional standards. This would include:</p>
-                    <p class="cn">除為滿足我們的合法專業和業務需要，和／或根據法律或專業標準要求或允許的必要條件外，我們不會與非關聯第三方共享個人信息。這將包括：</p>
-                    <ul class="en">
-                        <li><strong>Our service providers:</strong> we work with reputable partners, service providers or agencies so they can process your personal information on our behalf. We will only transfer personal information to them when they meet our strict standards on the processing of data and security. We only share personal information that allows them to provide their services.</li>
-                        <li><strong>If we are reorganised or sold to another organisation:</strong> we may also disclose personal information in connection with the sale, assignment, or other transfer of the business of the site to which the data relates;</li>
-                        <li><strong>Courts, tribunals, law enforcement or regulatory bodies:</strong> we may disclose personal information in order to respond to requests of courts, tribunals, government or law enforcement agencies or where it is necessary or prudent to comply with applicable laws, court or tribunal orders or rules, or government regulations.</li>
-                        <li><strong>Audits:</strong> disclosures of personal information may also be needed for data privacy or security audits and/or to investigate or respond to a complaint or security threat.</li>
-                    </ul>
-                    <ul class="cn">
-                        <li><strong>我們的服務提供商：</strong>我們與信譽良好的合作夥伴、服務提供商或代理商合作，以便他們可以代表我們處理您的個人信息。僅當它們滿足我們對數據處理和安全性的嚴格標準時，我們才會向他們傳輸個人信息。我們僅共享允許他們提供服務的個人信息。</li>
-                        <li><strong>如果我們被改組或出售給另一個組織：</strong>我們也可能會披露與數據相關的網站業務的出售、轉讓或其他轉讓有關的個人信息；</li>
-                        <li><strong>法院、法庭、執法機構或監管機構：</strong>我們可能會披露個人信息，以回應法院、法庭、政府或執法機構的要求，或者在必要或審慎地遵守適用法律、法院或法庭命令或規則或政府法規的情況下。</li>
-                        <li><strong>審核：</strong>數據隱私或安全審核和／或調查或響應投訴或安全威脅也可能需要披露個人信息。</li>
-                    </ul>
-                    <p class="en">In addition, we may transfer certain personal information inside and outside of Hong Kong to companies working with us or on our behalf for the purposes described in this Privacy Statement. We may also store personal information inside or outside of Hong Kong. If we do this your personal information will continue to be protected by means of contracts we have in place with those organisations inside and outside Hong Kong, which are in a form approved by the competent authority in the applicable jurisdiction. We will not transfer the personal information you provide to any third parties for their own direct marketing use.</p>
-                    <p class="cn">此外，出於本隱私聲明中所述的目的，我們可能會將某些個人信息在香港內外轉移給與我們合作或代表我們的公司。我們也可能在香港內部或外部存儲個人信息。如果我們這樣做，您的個人信息將繼續受到我們與香港內外機構簽訂的合同的保護，這些合同的格式由適用司法管轄區的主管當局批准。我們不會將您提供的個人信息轉讓給任何第三方，以供其直接營銷之用。</p>
-
-                    <h4 class="en">3. Choices</h4>
-                    <h4 class="cn">3. 選擇</h4>
-                    <p class="en">In general, you are not required to submit any personal information to us, but we may require you to provide certain personal information in order for you to receive additional information about our services and events. We may also ask for your permission for certain uses of your personal information, and you can agree to or decline those uses. If you opt-in for particular services or communications, such as an e-newsletter, you will be able to unsubscribe at any time by following the instructions included in each communication. If you decide to unsubscribe from a service or communication, we will try to remove your information promptly, although we may require additional information before we can process your request.</p>
-                    <p class="cn">通常，您不需要向我們提交任何個人信息，但是我們可能會要求您提供某些個人信息，以便您接收有關我們服務和事件的其他信息。我們也可能會要求您對您的個人信息的某些用途進行許可，並且您可以同意或拒絕這些用途。如果您選擇參加某些服務或通訊，例如電子通訊，則可以按照每個通訊中包含的說明隨時取消訂閱。如果您決定退訂服務或通訊，儘管我們可能需要其他信息才能處理您的請求，但我們將嘗試迅速刪除您的信息。</p>
-                    <p class="en">As described in "Cookies" above, if you wish to prevent cookies from tracking you as you navigate our sites, you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. Note, however, that some portions of our sites may not work properly if you elect to refuse cookies.</p>
-                    <p class="cn">如上文「Cookies」中所述，如果您希望在瀏覽我們的網站時阻止 cookie 跟踪您，則可以重置瀏覽器以拒絕所有 cookie 或指示何時發送 cookie。但是請注意，如果您選擇拒絕 Cookie，則我們網站的某些部分可能無法正常工作。</p>
-
-                    <h4 class="en">4. Your rights</h4>
-                    <h4 class="cn">4. 您的權利</h4>
-                    <p class="en">If you have submitted personal information to us, you have the following rights:</p>
-                    <p class="cn">如果您已向我們提交了個人信息，則您擁有以下權利：</p>
-                    <ul class="en">
-                        <li><strong>Access and correction:</strong> you have the right to access to that data. This is sometimes called a 'Subject Access Request'. If we agree that we are obliged to provide personal information to you, we will provide it to you free of charge. Before providing personal information to you, we may ask for proof of identity and sufficient information about your interactions with us that we can locate your personal information. If the information we hold about you is incorrect, you may ask us to correct any inaccuracies in the personal information.</li>
-                        <li><strong>Object to processing:</strong> you may have the right to object to us processing your personal information if we are not entitled to use it any more, to have your information deleted if we are keeping it too long or have its processing restricted in certain circumstances and/or to obtain copies of information we hold about you in electronic form if we are able to do so.</li>
-                    </ul>
-                    <ul class="cn">
-                        <li><strong>訪問和更正：</strong>您有權訪問該數據。有時稱為「主題訪問請求」。如果我們同意有義務向您提供個人信息，我們將免費向您提供。在向您提供個人信息之前，我們可能會要求提供身份證明以及關於您與我們互動的足夠信息，以便我們找到您的個人信息。如果我們持有的有關您的信息有誤，您可以要求我們糾正個人信息中的任何不正確之處。</li>
-                        <li><strong>反對處理：</strong>如果我們無權再使用您的個人信息，您可能有權反對我們處理您的個人信息；如果我們保留的時間太長，有權將您的信息刪除；或在某些情況下對其處理受到限制，及／或以電子方式獲取我們持有的有關您的信息的副本。</li>
-                    </ul>
-                    <p class="en">You can make a request or exercise these rights by contacting us and we will make all reasonable and practical efforts to comply with your request, so long as it is consistent with applicable law and professional standards.</p>
-                    <p class="cn">您可以通過與我們聯繫來提出要求或行使這些權利，只要符合適用法律和專業標準，我們將盡一切合理和實際的努力來滿足您的要求。</p>
-
-                    <h4 class="en">5. Data security and integrity</h4>
-                    <h4 class="cn">5. 數據安全性和完整性</h4>
-                    <p class="en">We have reasonable security policies and procedures in place to protect personal information from unauthorised loss, misuse, alteration, or destruction. Despite our best efforts, however, security cannot be absolutely guaranteed against all threats. To the best of our ability, access to your personal information is limited to those who have a need to know. Those individuals who have access to the data are required to maintain the confidentiality of such information. We also make reasonable efforts to retain personal information only for so long as the information is necessary to comply with an individual's request or until that person asks that the information be deleted and, in any case, no longer than 10 years.</p>
-                    <p class="cn">我們制定了合理的安全政策和程序來保護個人信息免遭未經授權的丟失、濫用、更改或破壞。儘管我們盡了最大的努力，但是不能絕對保證安全性不受所有威脅的影響。盡我們最大可能，只有需要知道的人才能訪問您的個人信息。那些有權訪問數據的個人必須對此類信息進行保密。我們也將盡合理的努力保留個人信息，只要該信息對於滿足個人要求是必要的，或者直到該個人要求刪除該信息，並且無論如何不得超過 10 年。</p>
-
-                    <h4 class="en">6. Links to other sites</h4>
-                    <h4 class="cn">6. 鏈接到其他網站</h4>
-                    <p class="en">Please be aware that our web sites may contain links to other sites not governed by this Privacy Statement. We encourage users to review the privacy policy of each website visited before disclosing any personal information.</p>
-                    <p class="cn">請注意，我們的網站可能包含不受本隱私聲明約束的其他網站的鏈接。我們鼓勵用戶在披露任何個人信息之前，仔細閱讀所訪問的每個網站的隱私政策。</p>
-
-                    <h4 class="en">7. Changes to this statement</h4>
-                    <h4 class="cn">7. 對本聲明的更改</h4>
-                    <p class="en">We may modify this Privacy Statement from time to time to reflect our current privacy practices. When we make changes to this statement, we will revise the "updated" date at the top of this page. We encourage you to periodically review this Privacy Statement to be informed about how we are protecting your information.</p>
-                    <p class="cn">我們可能會不時修改本隱私聲明，以反映我們當前的隱私慣例。當我們對此聲明進行更改時，我們將修改此頁面頂部的「更新」日期。我們鼓勵您定期查看本隱私聲明，以了解我們如何保護您的信息。</p>
-
-                    <h4 class="en">8. Policy questions and enforcement</h4>
-                    <h4 class="cn">8. 政策問題和執行</h4>
-                    <p class="en">We are committed to protecting the online privacy of your personal information. If you have questions or comments about our administration of your personal information, please contact us at <a href="mailto:info@chanchingman.com">info@chanchingman.com</a>. You may also use this address to communicate any concerns you may have regarding compliance with our Privacy Statement.</p>
-                    <p class="cn">我們致力於保護您的在線個人信息私隱。如果您對我們如何管理您的個人信息有疑問或意見，請通過 <a href="mailto:info@chanchingman.com">info@chanchingman.com</a> 與我們聯繫。您也可以使用此地址來傳達您對遵守我們隱私聲明的任何疑問。</p>
+                    <h4 class="en">6. Your rights and contact</h4>
+                    <h4 class="cn">6. 您的權利及聯絡</h4>
+                    <p class="en">Under the PDPO you may request access to, and correction of, personal data we hold about you. Please send requests or questions to <a href="#enquiry" class="js-email" data-u="info" data-d="chanchingman.com">info [at] chanchingman.com</a>, or write to us at Unit 3203A, 32/F, Tower One, Lippo Centre, 89 Queensway, Admiralty, Hong Kong. We may charge a reasonable fee for a data access request as permitted by the PDPO.</p>
+                    <p class="cn">根據私隱條例，您可要求查閱及改正我們持有關於您的個人資料。如有要求或疑問，請電郵至 <a href="#enquiry" class="js-email" data-u="info" data-d="chanchingman.com">info [at] chanchingman.com</a>，或致函香港金鐘道89號力寶中心一座32樓3203A室。我們可按私隱條例的規定，就查閱資料要求收取合理費用。</p>
                 </div>
             </div>
 
@@ -1159,10 +1107,32 @@
 </button>
 
 <footer>
-    <div class="social-links">
-        <a href="https://www.linkedin.com/company/74681253/" target="_blank" aria-label="LinkedIn"><svg class="ico ico-linkedin-in" aria-hidden="true" focusable="false"><use href="#i-linkedin-in"/></svg></a>
-        <a href="https://www.facebook.com/ccmsolicitor" target="_blank" aria-label="Facebook"><svg class="ico ico-facebook-f" aria-hidden="true" focusable="false"><use href="#i-facebook-f"/></svg></a>
-        <a href="https://www.instagram.com/ccmsolicitors/" target="_blank" aria-label="Instagram"><svg class="ico ico-instagram" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Chan Ching Man &amp; Co.<br><span class="cn-inline-always">陳靜文律師事務所</span></h4>
+            <p class="en"><a href="https://www.google.com/maps/search/?api=1&amp;query=Lippo+Centre+Tower+One+89+Queensway+Admiralty+Hong+Kong" target="_blank" rel="noopener">Unit 3203A, 32/F, Tower One, Lippo Centre,<br>89 Queensway, Admiralty, Hong Kong</a></p>
+            <p class="cn"><a href="https://www.google.com/maps/search/?api=1&amp;query=Lippo+Centre+Tower+One+89+Queensway+Admiralty+Hong+Kong" target="_blank" rel="noopener">香港金鐘道89號力寶中心一座32樓3203A室</a></p>
+            <p><a href="tel:+85226890988">+852 2689 0988</a></p>
+            <p><a href="#enquiry" class="js-email" data-u="info" data-d="chanchingman.com">info [at] chanchingman.com</a></p>
+        </div>
+        <div class="footer-col">
+            <h4><span class="en-inline">More</span><span class="cn-inline">更多</span></h4>
+            <ul class="footer-links">
+                <li><a href="#testimonials"><span class="en-inline">Client Testimonials</span><span class="cn-inline">客戶評價</span></a></li>
+                <li><a href="#faq"><span class="en-inline">FAQ</span><span class="cn-inline">常見問題</span></a></li>
+                <li><a href="#careers"><span class="en-inline">Careers</span><span class="cn-inline">招聘</span></a></li>
+                <li><a href="#media"><span class="en-inline">Media</span><span class="cn-inline">媒體報道</span></a></li>
+                <li><a href="#blog"><span class="en-inline">Legal Knowledge</span><span class="cn-inline">法律知識</span></a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4><span class="en-inline">Follow us</span><span class="cn-inline">關注我們</span></h4>
+            <div class="social-links">
+        <a href="https://www.linkedin.com/company/74681253/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico ico-linkedin-in" aria-hidden="true" focusable="false"><use href="#i-linkedin-in"/></svg></a>
+        <a href="https://www.facebook.com/ccmsolicitor" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ico ico-facebook-f" aria-hidden="true" focusable="false"><use href="#i-facebook-f"/></svg></a>
+        <a href="https://www.instagram.com/ccmsolicitors/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico ico-instagram" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a>
+    </div>
+        </div>
     </div>
     <p>&copy; 2026 Chan Ching Man & Co. 陳靜文律師事務所. All rights reserved.</p>
     <p class="footer-legal"><a href="#" data-legal-open="terms"><span class="en-inline">Terms &amp; Conditions</span><span class="cn-inline">條款及細則</span></a> | <a href="#" data-legal-open="privacy"><span class="en-inline">Privacy Policy</span><span class="cn-inline">私隱政策</span></a></p>

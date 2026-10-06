@@ -122,11 +122,63 @@ function closeLegal(){
     // Team / media / blog cards: toggle active state + keep aria in sync
     document.querySelectorAll('[data-card-toggle]').forEach(function(card){
         makeKeyboardActivatable(card);
-        card.addEventListener('click', function(){
+        card.addEventListener('click', function(e){
+            // Don't collapse while the visitor is reading / selecting the expanded text
+            if (e.target.closest('a, .blog-full')) return;
             var open = card.classList.toggle('active');
             card.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
     });
+
+    // Practice area filters (All / Dispute / Corporate / Private client)
+    var pillars = document.querySelectorAll('.pillar[data-filter]');
+    pillars.forEach(function(btn){
+        btn.addEventListener('click', function(){
+            var f = btn.getAttribute('data-filter');
+            pillars.forEach(function(b){
+                var on = b === btn;
+                b.classList.toggle('active', on);
+                b.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
+            document.querySelectorAll('.practice-card[data-cat]').forEach(function(card){
+                card.hidden = !(f === 'all' || card.getAttribute('data-cat') === f);
+            });
+        });
+    });
+
+    // E-mail addresses are not written in the HTML (anti-harvesting); assemble them here
+    document.querySelectorAll('.js-email[data-u][data-d]').forEach(function(el){
+        var addr = el.getAttribute('data-u') + '@' + el.getAttribute('data-d');
+        var link = el;
+        if (el.tagName !== 'A') {
+            link = document.createElement('a');
+            link.className = el.className;
+            el.replaceWith(link);
+        }
+        link.href = 'mailto:' + addr;
+        if (!el.hasAttribute('data-keep-text')) link.textContent = addr;
+    });
+
+    // Enquiry form: compose an e-mail in the visitor's mail app (nothing is stored on the site)
+    var form = document.getElementById('enquiry');
+    if (form) {
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            var get = function(n){ return (form.elements[n].value || '').trim(); };
+            var name = get('name'), contact = get('contact'), matter = get('matter'), message = get('message');
+            var err = document.getElementById('enq-error');
+            if (!name || !contact || !message) {
+                if (err) err.hidden = false;
+                (!name ? form.elements.name : !contact ? form.elements.contact : form.elements.message).focus();
+                return;
+            }
+            if (err) err.hidden = true;
+            var subject = 'Website enquiry: ' + matter + ' (' + name + ')';
+            var body = 'Name: ' + name + '\nContact: ' + contact + '\nMatter: ' + matter + '\n\n' + message + '\n';
+            window.location.href = 'mailto:' + 'info' + '@' + 'chanchingman.com' +
+                '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        });
+    }
 
     // Legal modal triggers (open / switch tab / close)
     document.querySelectorAll('[data-legal-open]').forEach(function(el){

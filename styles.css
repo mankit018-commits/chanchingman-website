@@ -376,14 +376,14 @@ footer .footer-legal a:hover{color:var(--white)}
 .nav-text span.cn{display:none}
 body.zh .nav-text span.en{display:none}
 body.zh .nav-text span.cn{display:block}
-/* Nav: 12 links do not fit beside the brand below ~1440px; hamburger at <=1360px */
+/* Nav: compact at <=1280px; hamburger at <=1180px */
 .nav-text h1{white-space:nowrap}
-@media(max-width:1440px){
+@media(max-width:1280px){
   .nav-links{gap:1.1rem}
   .nav-links a{font-size:.7rem}
   .nav-text span{display:none!important}
 }
-@media(max-width:1360px){
+@media(max-width:1180px){
   .nav-links{display:none;position:absolute;top:80px;left:0;width:100%;background:var(--white);flex-direction:column;padding:2rem;gap:1.5rem;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08)}
   .nav-links.active{display:flex}
   .nav-links a{font-size:.75rem}
@@ -398,3 +398,104 @@ body.zh .nav-text span.cn{display:block}
 @media(max-width:380px){
   .nav-text span.en,.nav-text span.cn,body.zh .nav-text span.cn{display:none!important}
 }
+
+/* ===== Round 2 review (2026-10-06): design / usability / conversion ===== */
+/* Nav: brand is a home link; language toggle lives inside the nav bar */
+.nav-brand{text-decoration:none;color:inherit}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.lang-toggle{position:static;top:auto;right:auto;z-index:auto;box-shadow:none;margin-left:24px}
+.lang-btn{min-width:44px;min-height:40px;padding:0 12px}
+.nav-toggle{min-width:44px;min-height:44px;align-items:center;justify-content:center}
+@media(max-width:1180px){
+  .nav-toggle{display:inline-flex}
+  .nav-links a{display:flex;align-items:center;min-height:44px;width:100%}
+  .nav-links{gap:.25rem}
+  .lang-toggle{margin-left:0}
+}
+/* Hero calls to action */
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px}
+.btn-primary{background:var(--charcoal);color:var(--white)}
+.btn-primary:hover{background:#000;color:var(--white)}
+.hero-cta .btn:not(.btn-primary){background:rgba(255,255,255,.6)}
+.hero-cta .btn:not(.btn-primary):hover{background:var(--charcoal);color:var(--white)}
+/* Practice filters (real buttons) */
+.pillar{background:transparent;font-family:inherit;cursor:pointer;min-height:44px;transition:background .2s,color .2s,border-color .2s}
+.pillar span{color:inherit;margin-right:0}
+.pillar .pillar-no{color:var(--bronze);margin-right:6px}
+.pillar:hover{border-color:var(--charcoal);color:var(--charcoal)}
+.pillar.active{background:var(--charcoal);border-color:var(--charcoal);color:var(--white)}
+.pillar.active .pillar-no{color:#d9c7a8}
+.pillar:focus-visible{outline:2px solid var(--charcoal);outline-offset:3px}
+.practice-card[hidden]{display:none}
+/* Testimonials: tighter vertical rhythm */
+.testimonials{padding-top:80px;padding-bottom:80px}
+/* Contact: tap targets + enquiry form */
+.contact-item a{display:inline-block;padding:12px 4px;min-height:44px}
+.enquiry-form{max-width:860px;margin:50px auto 0;background:var(--off-white);border:1px solid var(--border);padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:18px 24px}
+.enquiry-form h3,.enquiry-form .form-note,.enquiry-form .form-row-full,.enquiry-form .form-error,.enquiry-form .form-actions{grid-column:1/-1}
+.enquiry-form h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--charcoal);font-weight:600}
+body.zh .enquiry-form h3{font-family:'Noto Serif TC',serif}
+.form-note{font-size:.85rem;color:var(--text-light);line-height:1.7}
+.form-note-small{font-size:.8rem}
+.form-row label{display:block;font-size:.8rem;letter-spacing:.3px;color:var(--mid-grey);margin-bottom:6px;font-weight:500}
+.form-row input,.form-row select,.form-row textarea{width:100%;font:inherit;font-size:1rem;padding:11px 14px;border:1px solid #bdbdbd;background:var(--white);color:var(--text);border-radius:0;min-height:44px}
+.form-row textarea{resize:vertical}
+.form-row input:focus-visible,.form-row select:focus-visible,.form-row textarea:focus-visible{outline:2px solid var(--charcoal);outline-offset:1px}
+.form-error{color:#9b1c1c;font-size:.88rem}
+.form-actions{display:flex;flex-wrap:wrap;gap:12px}
+/* Media + Legal Knowledge: explicit expand affordance, full articles */
+.media-more,.blog-more{margin-top:14px;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--bronze);font-weight:600}
+.media-more::after,.blog-more::after{content:' +'}
+.media-card.active .media-more::after,.blog-card.active .blog-more::after{content:' \2212'}
+.media-source{font-size:.83rem}
+.blog-grid .blog-card.active{grid-column:1/-1}
+.blog-full{display:none;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);max-width:760px;cursor:auto}
+.blog-card.active .blog-full{display:block}
+.blog-full p,.blog-full li{font-size:.95rem;color:var(--text);line-height:1.9}
+.blog-full p{margin-bottom:12px}
+.blog-full h4{font-family:'Noto Serif TC',serif;font-size:1rem;color:var(--charcoal);margin:20px 0 8px}
+.blog-full ul{margin:0 0 12px 22px}
+.blog-full img{display:block;width:100%;max-width:640px;height:auto}
+/* Footer: N.A.P. + secondary links */
+footer{text-align:left}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 28px}
+.footer-col h4{font-family:'Playfair Display',serif;color:var(--white);font-size:.95rem;font-weight:600;line-height:1.5;margin-bottom:12px}
+.footer-col p{font-size:.86rem;line-height:1.6}
+.footer-col a{color:rgba(255,255,255,.78);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.footer-col a:hover{color:var(--white)}
+.footer-links{list-style:none}
+.social-links{margin:0 0 0 -10px}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;margin:0}
+footer>p{text-align:center}
+footer .footer-legal a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
+@media(max-width:768px){
+  .hero-cta{flex-direction:column;align-items:center}
+  .hero-cta .btn{width:100%;max-width:320px}
+  .enquiry-form{grid-template-columns:1fr;padding:26px 20px;margin-top:36px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .testimonials{padding-top:56px;padding-bottom:56px}
+  /* 12px floor for small text on phones */
+  .case-tag,.case-ref,.award-status,.about-stat .label,.credential .c-label,.team-info .role,.team-info .languages,
+  .pillar,.media-more,.blog-more,.nav-text span,.lang-btn,.practice-card p,.blog-card p,.contact-wechat p,
+  footer p,footer .footer-legal,.form-row label{font-size:.78rem}
+  .about-content,.legal-content{font-size:.95rem}
+}
+
+/* Empty grid cells (filtered practice cards / expanded blog card) must not show the grey gap colour */
+.practice-grid,.blog-grid{background:transparent}
+.practice-card,.blog-card{box-shadow:0 0 0 1px var(--border)}
+
+/* Phones: keep brand + language toggle + menu button on one row */
+@media(max-width:600px){
+  nav{padding:0 12px;height:68px}
+  .nav-brand{gap:8px;min-width:0;flex:1 1 auto}
+  .nav-logo{width:44px;height:auto}
+  .nav-text{min-width:0}
+  .nav-text h1{font-size:.8rem;letter-spacing:.5px;white-space:nowrap}
+  .nav-text span,.nav-text span.en,.nav-text span.cn,body.zh .nav-text span.en,body.zh .nav-text span.cn{display:none!important}
+  .nav-actions{gap:4px;flex:0 0 auto}
+  .lang-btn{min-width:40px;padding:0 8px}
+  .nav-links{top:68px}
+}
+@media(max-width:360px){.nav-text h1{white-space:normal;line-height:1.2}}
