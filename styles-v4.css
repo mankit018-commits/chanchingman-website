@@ -97,9 +97,35 @@ body.zh .practice-card h3{font-family:'Noto Serif TC',serif}
 body.zh .team-info h3{font-family:'Noto Serif TC',serif}
 .team-info .role{color:var(--bronze);font-size:.72rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;margin-bottom:12px}
 .team-info p{font-size:.82rem;color:var(--text-light);line-height:1.75;display:none}
-.team-card.active .team-info p{display:block}
+/* expanded / featured: show bio in the current language only */
+.team-card.active .team-info p.en,.team-card.featured .team-info p.en{display:block}
+body.zh .team-card.active .team-info p.en,body.zh .team-card.featured .team-info p.en{display:none}
+body.zh .team-card.active .team-info p.cn,body.zh .team-card.featured .team-info p.cn{display:block}
+body.zh .team-card:not(.active):not(.featured) .team-info p.cn{display:none}
 .team-info .languages{margin-top:10px;font-size:.74rem;color:var(--light-grey);font-weight:400;display:none}
-.team-card.active .languages{display:block}
+.team-card.active .languages,.team-card.featured .languages{display:block}
+/* expand hint on clickable cards */
+.team-card[data-card-toggle] .team-info{position:relative}
+.team-card[data-card-toggle] .team-info::after{content:'+';position:absolute;top:22px;right:26px;font-size:1.25rem;font-weight:300;color:var(--light-grey);line-height:1}
+.team-card[data-card-toggle].active .team-info::after{content:'\2212'}
+/* credentials strip (admissions / qualifications) */
+.credentials{display:none;flex-wrap:wrap;gap:14px 36px;margin-top:20px;padding-top:18px;border-top:1px solid var(--border)}
+.team-card.active .credentials,.team-card.featured .credentials{display:flex}
+.credential .c-label{font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--bronze);font-weight:600;margin-bottom:2px}
+.credential .c-value{font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--charcoal)}
+/* founder: full-width feature card, photo left + profile right */
+.team-card.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(280px,400px) 1fr;cursor:default}
+.team-card.featured:hover{background:var(--white)}
+.team-card.featured .team-photo{height:100%;min-height:460px}
+.team-card.featured .team-info{padding:44px 52px;align-self:center}
+.team-card.featured .team-info h3{font-size:1.45rem;margin-bottom:6px}
+.team-card.featured .team-info .role{margin-bottom:18px}
+.team-card.featured .team-info p{font-size:.86rem;line-height:1.85}
+@media(max-width:768px){
+  .team-card.featured{grid-template-columns:1fr}
+  .team-card.featured .team-photo{height:340px;min-height:0}
+  .team-card.featured .team-info{padding:24px 20px}
+}
 
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;max-width:860px;margin:0 auto;text-align:center}
