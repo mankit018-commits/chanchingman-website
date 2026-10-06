@@ -7,12 +7,15 @@ function setLang(lang, btn){
         b.classList.toggle('active', active);
         b.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+    // Remember the choice across visits
+    try { localStorage.setItem('ccm-lang', isZh ? 'zh' : 'en'); } catch (e) {}
 }
 
 function toggleDetail(card){
     var detail = card.querySelector('.practice-detail');
     var open = detail.classList.toggle('active');
-    card.setAttribute('aria-expanded', open ? 'true' : 'false');
+    var btn = card.querySelector('.practice-toggle');
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
 
 var _legalLastFocus = null;
@@ -71,6 +74,28 @@ function closeLegal(){
         });
     });
 
+    // Initial language: saved choice, else browser language (zh-* -> Chinese)
+    var savedLang = null;
+    try { savedLang = localStorage.getItem('ccm-lang'); } catch (e) {}
+    var initialLang = savedLang || (/^zh/i.test(navigator.language || '') ? 'zh' : 'en');
+    if (initialLang === 'zh') {
+        setLang('zh', document.querySelector('.lang-btn[data-lang="zh"]'));
+    }
+
+    // Google Map: load the iframe only when the visitor asks for it (privacy + performance)
+    document.querySelectorAll('.map-load[data-map-src]').forEach(function(btn){
+        btn.addEventListener('click', function(){
+            var iframe = document.createElement('iframe');
+            iframe.src = btn.getAttribute('data-map-src');
+            iframe.title = btn.getAttribute('data-map-title') || 'Map';
+            iframe.width = '100%';
+            iframe.height = '320';
+            iframe.loading = 'lazy';
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+            btn.replaceWith(iframe);
+        });
+    });
+
     // Helper: make a non-button element behave like a button (keyboard + roles)
     function makeKeyboardActivatable(el){
         if (el.tagName === 'BUTTON' || el.tagName === 'A') return;
@@ -85,10 +110,13 @@ function closeLegal(){
         });
     }
 
-    // Practice cards: expand details
+    // Practice cards: the heading <button> is the accessible control; clicking
+    // anywhere on the card still toggles it for mouse users.
     document.querySelectorAll('.practice-card').forEach(function(card){
-        makeKeyboardActivatable(card);
-        card.addEventListener('click', function(){ toggleDetail(card); });
+        card.addEventListener('click', function(e){
+            if (e.target.closest('a')) return; // let links inside details work
+            toggleDetail(card);
+        });
     });
 
     // Team / media / blog cards: toggle active state + keep aria in sync
