@@ -328,7 +328,7 @@ body.zh .case-name{font-family:'Noto Serif TC',serif}
 .award-card{background:var(--white);padding:35px 30px;text-align:center;transition:background .25s}
 .award-card:hover{background:#fafafa}
 .award-badge{margin-bottom:20px}
-.award-badge img{max-width:100%;height:120px;width:auto;object-fit:contain;filter:grayscale(15%)}
+.award-badge img{max-width:100%;height:160px;width:auto;object-fit:contain}
 .award-status{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--bronze);font-weight:600;margin-bottom:8px}
 .award-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:12px}
 body.zh .award-card h3{font-family:'Noto Serif TC',serif}
