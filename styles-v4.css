@@ -499,3 +499,36 @@ footer .footer-legal a{display:inline-flex;align-items:center;min-height:44px;pa
   .nav-links{top:68px}
 }
 @media(max-width:360px){.nav-text h1{white-space:normal;line-height:1.2}}
+
+/* Team Profile Pages */
+.profile-page{max-width:900px;margin:0 auto;padding:60px 24px 80px}
+.profile-header{display:grid;grid-template-columns:minmax(250px,350px) 1fr;gap:40px;align-items:start;margin-bottom:40px}
+.profile-photo{width:100%;max-width:350px;height:auto;object-fit:cover;object-position:center top;border-radius:2px}
+.profile-name{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:4px}
+body.zh .profile-name{font-family:'Noto Serif TC',serif}
+.profile-title{color:var(--bronze);font-size:.8rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;margin-bottom:16px}
+.profile-bio h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin:32px 0 16px;border-bottom:1px solid var(--border);padding-bottom:8px}
+body.zh .profile-bio h3{font-family:'Noto Serif TC',serif}
+.profile-bio p{font-size:.9rem;color:var(--text-light);line-height:1.85;margin-bottom:12px}
+.profile-bio .en{display:block}
+.profile-bio .cn{display:none}
+body.zh .profile-bio .en{display:none}
+body.zh .profile-bio .cn{display:block}
+.testimonials-section{margin-top:48px}
+.testimonials-section h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:8px}
+body.zh .testimonials-section h3{font-family:'Noto Serif TC',serif}
+.testimonial-item{background:var(--white);border-left:3px solid var(--bronze);padding:16px 20px;margin-bottom:16px;font-size:.85rem;color:var(--text-light);line-height:1.75;font-style:italic}
+.testimonial-item .en{display:block}
+.testimonial-item .cn{display:none}
+body.zh .testimonial-item .en{display:none}
+body.zh .testimonial-item .cn{display:block}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--bronze);font-size:.85rem;text-decoration:none;margin-bottom:32px;font-weight:500}
+.back-link:hover{text-decoration:underline}
+.ico-back{transform:rotate(-90deg)}
+.profile-link{display:inline-block;margin-top:12px;color:var(--bronze);font-size:.8rem;font-weight:500;text-decoration:none;letter-spacing:.5px}
+.profile-link:hover{text-decoration:underline}
+@media(max-width:768px){
+  .profile-header{grid-template-columns:1fr;gap:24px}
+  .profile-photo{max-width:280px;margin:0 auto}
+  .profile-page{padding:40px 16px 60px}
+}

@@ -4,7 +4,7 @@
  * is not the current CACHE, and skipWaiting()/clients.claim() make the new
  * worker take over promptly so users do not get stuck on a stale version.
  */
-const CACHE = 'ccm-v4-20261029j';
+const CACHE = 'ccm-v4-20261105a';
 const ASSETS = [
   './',
   './index.html',
