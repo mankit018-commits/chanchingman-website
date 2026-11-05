@@ -123,7 +123,7 @@ body.zh .team-card:not(.active):not(.featured) .team-info p.cn{display:none}
 .team-card.featured .team-info p{font-size:.86rem;line-height:1.85}
 @media(max-width:768px){
   .team-card.featured{grid-template-columns:1fr}
-  .team-card.featured .team-photo{height:340px;min-height:0}
+  .team-card.featured .team-photo{height:auto;aspect-ratio:4/5;min-height:0;max-height:none;object-position:center}
   .team-card.featured .team-info{padding:24px 20px}
 }
 
@@ -292,6 +292,7 @@ body.zh .legal-panel h3{font-family:'Noto Serif TC',serif}
   .nav-text h1{font-size:.78rem}
   .nav-text span{display:none}
   .team-photo{height:220px}
+  .team-card.featured .team-photo{height:auto;aspect-ratio:4/5}
 }
 
 
