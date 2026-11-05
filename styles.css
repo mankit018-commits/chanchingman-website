@@ -134,8 +134,9 @@ body.zh .team-card:not(.active):not(.featured) .team-info p.cn{display:none}
 .contact-item p{font-size:.87rem;color:var(--text-light)}
 .contact-item a{color:var(--text-light);text-decoration:none;transition:color .25s}
 .contact-item a:hover{color:var(--charcoal)}
-.contact-photo{max-width:1000px;margin:50px auto 0;border:1px solid var(--border);overflow:hidden;background:var(--off-white)}
-.contact-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.contact-photo{position:relative;width:100%;max-width:1600px;margin:50px auto 0;overflow:hidden;background:var(--off-white)}
+.contact-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center}
+.contact-photo-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(247,247,247,.72),rgba(232,232,232,.65));pointer-events:none}
 
 /* Contact extras */
 .contact-extra{display:grid;grid-template-columns:2fr 1fr;gap:30px;max-width:1000px;margin:50px auto 0;align-items:stretch}
@@ -476,6 +477,7 @@ footer .footer-legal a{display:inline-flex;align-items:center;min-height:44px;pa
   .hero-cta .btn{width:100%;max-width:320px}
   .enquiry-form{grid-template-columns:1fr;padding:26px 20px;margin-top:36px}
   .contact-photo{margin-top:36px}
+  .contact-photo img{aspect-ratio:4/3}
   .footer-grid{grid-template-columns:1fr;gap:24px}
   .testimonials{padding-top:56px;padding-bottom:56px}
   /* 12px floor for small text on phones */
