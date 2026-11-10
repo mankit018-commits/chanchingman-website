@@ -171,6 +171,10 @@ body.zh .news-card h3{font-family:'Noto Serif TC',serif}
 .news-card.active .news-full{display:block}
 .news-full p{font-size:.92rem;line-height:1.95;color:var(--text);margin-bottom:14px}
 .news-full p:last-child{margin-bottom:0}
+.news-photo{margin:0 0 22px}
+.news-photo img{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--border);background:#f6f6f6}
+.news-photo figcaption{margin-top:10px;font-size:.76rem;line-height:1.7;letter-spacing:.3px;color:var(--text-light);text-align:center}
+@media(max-width:768px){.news-photo{margin-bottom:18px}}
 
 /* Legal Knowledge / Blog */
 .legal-knowledge{background:var(--off-white)}
