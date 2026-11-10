@@ -528,3 +528,13 @@ body.zh .testimonial-item .cn{display:block}
   .profile-photo{max-width:280px;margin:0 auto}
   .profile-page{padding:40px 16px 60px}
 }
+/* ===== Site-wide justified body copy (2026-11-10) =====
+   All prose (paragraphs + list items) is justified / 左右對齊 on every page:
+   About, Practice Areas, Selected Experience, Recognition, News, Legal
+   Knowledge, Careers, enquiry form, legal modals, team profiles and
+   testimonials. Short centred UI text stays centred (hero tagline, section
+   titles, nav/buttons, contact details, WeChat block, footer copyright and
+   the Apply Now button line). Headings are intentionally NOT justified. */
+p,li{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+.about-content,.practice-intro,.practice-detail,.case-note{text-align:justify}
+.hero-content p,.contact-item p,.contact-wechat p,footer>p,.careers .about-content>p:last-child{text-align:center;-webkit-hyphens:none;hyphens:none}
