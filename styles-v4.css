@@ -113,6 +113,8 @@ body.zh .team-card:not(.active):not(.featured) .team-info p.cn{display:none}
 .team-card.active .credentials,.team-card.featured .credentials{display:flex}
 .credential .c-label{font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--bronze);font-weight:600;margin-bottom:2px}
 .credential .c-value{font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--charcoal)}
+.credential-no-value{align-self:center}
+.credential-no-value .c-label{margin-bottom:0;font-size:.68rem;letter-spacing:1.1px}
 /* founder: full-width feature card, photo left + profile right */
 .team-card.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(280px,400px) 1fr;cursor:default}
 .team-card.featured:hover{background:var(--white)}
