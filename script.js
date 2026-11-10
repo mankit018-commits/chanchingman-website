@@ -210,17 +210,8 @@ function closeLegal(){
     });
 })();
 
-/* ===== Added features: FAQ, scroll-spy, fade-in, scroll-top, PWA ===== */
+/* ===== Added features: scroll-spy, fade-in, scroll-top, PWA ===== */
 (function(){
-    // FAQ accordion
-    document.querySelectorAll('.faq-q').forEach(function(btn){
-        btn.addEventListener('click', function(){
-            var item = btn.closest('.faq-item');
-            var open = item.classList.toggle('open');
-            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-    });
-
     // Scroll fade-in animations
     var sections = Array.prototype.slice.call(document.querySelectorAll('section')).filter(function(s){
         return s.id !== 'home';
