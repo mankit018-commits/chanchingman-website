@@ -119,12 +119,12 @@ function closeLegal(){
         });
     });
 
-    // Team / media / blog cards: toggle active state + keep aria in sync
+    // Team / news / blog cards: toggle active state + keep aria in sync
     document.querySelectorAll('[data-card-toggle]').forEach(function(card){
         makeKeyboardActivatable(card);
         card.addEventListener('click', function(e){
             // Don't collapse while the visitor is reading / selecting the expanded text
-            if (e.target.closest('a, .blog-full')) return;
+            if (e.target.closest('a, .blog-full, .news-full')) return;
             var open = card.classList.toggle('active');
             card.setAttribute('aria-expanded', open ? 'true' : 'false');
         });

@@ -170,16 +170,21 @@ body.zh .faq-q{font-family:'Noto Serif TC',serif}
 .testimonial-card p{font-style:italic;color:var(--text-light);line-height:1.95;font-size:.92rem;margin-bottom:20px}
 .testimonial-author{font-weight:600;color:var(--charcoal);font-size:.82rem;margin-top:auto;letter-spacing:.5px}
 
-/* Media */
-.media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;max-width:860px;margin:0 auto;background:var(--border)}
-.media-card{background:var(--white);padding:32px 26px;text-align:center;transition:background .25s;cursor:pointer}
-.media-card:hover{background:var(--off-white)}
-.media-icon{font-size:1.8rem;color:var(--bronze);margin-bottom:14px}
-.media-card h3{font-family:'Playfair Display',serif;font-size:.95rem;margin-bottom:8px;color:var(--charcoal)}
-.media-card p{font-size:.83rem;color:var(--text-light)}
-.media-img{display:none;margin-top:14px}
-.media-card.active .media-img{display:block}
-.media-img img{width:100%}
+/* News */
+.news-list{max-width:900px;margin:0 auto;display:grid;gap:18px}
+.news-card{background:var(--white);border:1px solid var(--border);border-left:2px solid var(--bronze);padding:30px 34px;cursor:pointer;transition:background .25s}
+.news-card:hover{background:#fafafa}
+.news-meta{font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--bronze);font-weight:600;margin-bottom:10px}
+.news-card h3{font-family:'Playfair Display',serif;font-size:1.16rem;line-height:1.5;font-weight:600;color:var(--charcoal);margin-bottom:12px}
+body.zh .news-card h3{font-family:'Noto Serif TC',serif}
+.news-lead{font-size:.92rem;line-height:1.85;color:var(--text-light)}
+.news-more{margin-top:16px;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--bronze);font-weight:600}
+.news-more::after{content:' +'}
+.news-card.active .news-more::after{content:' \2212'}
+.news-full{display:none;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);cursor:auto}
+.news-card.active .news-full{display:block}
+.news-full p{font-size:.92rem;line-height:1.95;color:var(--text);margin-bottom:14px}
+.news-full p:last-child{margin-bottom:0}
 
 /* Legal Knowledge / Blog */
 .legal-knowledge{background:var(--off-white)}
@@ -274,7 +279,7 @@ body.zh .legal-panel h3{font-family:'Noto Serif TC',serif}
   .contact-map,.contact-map iframe{min-height:240px}
   .testimonial-grid{grid-template-columns:1fr;gap:0}
   .blog-grid{grid-template-columns:1fr;gap:0}
-  .media-grid{grid-template-columns:1fr;gap:0}
+  .news-list{gap:14px}
   .lang-toggle{top:84px;right:10px}
   .lang-btn{padding:6px 12px;font-size:.68rem}
   .nav-text h1{font-size:.88rem}
@@ -448,11 +453,10 @@ body.zh .enquiry-form h3{font-family:'Noto Serif TC',serif}
 .form-row input:focus-visible,.form-row select:focus-visible,.form-row textarea:focus-visible{outline:2px solid var(--charcoal);outline-offset:1px}
 .form-error{color:#9b1c1c;font-size:.88rem}
 .form-actions{display:flex;flex-wrap:wrap;gap:12px}
-/* Media + Legal Knowledge: explicit expand affordance, full articles */
-.media-more,.blog-more{margin-top:14px;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--bronze);font-weight:600}
-.media-more::after,.blog-more::after{content:' +'}
-.media-card.active .media-more::after,.blog-card.active .blog-more::after{content:' \2212'}
-.media-source{font-size:.83rem}
+/* Legal Knowledge: explicit expand affordance, full articles */
+.blog-more{margin-top:14px;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--bronze);font-weight:600}
+.blog-more::after{content:' +'}
+.blog-card.active .blog-more::after{content:' \2212'}
 .blog-grid .blog-card.active{grid-column:1/-1}
 .blog-full{display:none;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);max-width:760px;cursor:auto}
 .blog-card.active .blog-full{display:block}
@@ -479,11 +483,14 @@ footer .footer-legal a{display:inline-flex;align-items:center;min-height:44px;pa
   .enquiry-form{grid-template-columns:1fr;padding:26px 20px;margin-top:36px}
   .contact-photo{margin-top:36px}
   .contact-photo img{aspect-ratio:4/3}
+  .news-card{padding:24px 20px}
+  .news-card h3{font-size:1.02rem}
+  .news-full p{font-size:.9rem}
   .footer-grid{grid-template-columns:1fr;gap:24px}
   .testimonials{padding-top:56px;padding-bottom:56px}
   /* 12px floor for small text on phones */
   .case-tag,.case-ref,.award-status,.about-stat .label,.credential .c-label,.team-info .role,.team-info .languages,
-  .pillar,.media-more,.blog-more,.nav-text span,.lang-btn,.practice-card p,.blog-card p,.contact-wechat p,
+  .pillar,.news-more,.blog-more,.nav-text span,.lang-btn,.practice-card p,.blog-card p,.contact-wechat p,
   footer p,footer .footer-legal,.form-row label{font-size:.78rem}
   .about-content,.legal-content{font-size:.95rem}
 }
