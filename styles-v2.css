@@ -270,7 +270,8 @@ body.zh .legal-panel h3{font-family:'Noto Serif TC',serif}
    Knowledge, Careers, enquiry form, legal modals, team profiles and
    testimonials. Short centred UI text stays centred (hero tagline, section
    titles, nav/buttons, contact details, WeChat block, footer copyright and
-   the Apply Now button line). Headings are intentionally NOT justified. */
-p,li{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+   the Apply Now button line). Headings are intentionally NOT justified.
+   Hyphenation is disabled so words are never split across lines (2026-11-13). */
+p,li{text-align:justify;-webkit-hyphens:none;hyphens:none;word-break:normal;overflow-wrap:normal}
 .about-content,.practice-intro,.practice-detail,.case-note{text-align:justify}
 .hero-content p,.contact-item p,.contact-wechat p,footer>p,.careers .about-content>p:last-child{text-align:center;-webkit-hyphens:none;hyphens:none}
