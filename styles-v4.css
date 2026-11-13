@@ -542,5 +542,5 @@ body.zh .testimonial-item .cn{display:block}
    titles, nav/buttons, contact details, WeChat block, footer copyright and
    the Apply Now button line). Headings are intentionally NOT justified. */
 p,li{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
-.about-content,.practice-intro,.practice-detail,.case-note{text-align:justify}
-.hero-content p,.contact-item p,.contact-wechat p,footer>p,.careers .about-content>p:last-child{text-align:center;-webkit-hyphens:none;hyphens:none}
+.about-content,.practice-intro,.practice-detail{text-align:justify}
+.hero-content p,.contact-item p,.contact-wechat p,footer>p,.case-note,.careers .about-content>p:last-child{text-align:center;-webkit-hyphens:none;hyphens:none}
