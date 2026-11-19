@@ -1,6 +1,6 @@
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--navy:#1a2332;--gold:#b8960c;--gold-light:#d4af37;--white:#fff;--light-bg:#f8f7f4;--text:#2c3e50;--text-light:#5a6c7d}
-        html{scroll-behavior:smooth}
+        html{scroll-behavior:smooth;scroll-padding-top:96px}
         body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6}
 
         /* Language Toggle */
@@ -203,8 +203,8 @@
         .nav-links a.active{color:var(--gold-light)}
 
         /* Scroll fade-in */
-        .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-        .reveal.visible{opacity:1;transform:none}
+        .js .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+        .js .reveal.visible{opacity:1;transform:none}
 
         /* Contact extras: map + WeChat */
         .contact-extra{display:grid;grid-template-columns:2fr 1fr;gap:30px;max-width:1000px;margin:50px auto 0;align-items:stretch}
@@ -339,3 +339,16 @@
 p,li{text-align:justify;-webkit-hyphens:none;hyphens:none;word-break:normal;overflow-wrap:normal}
 .about-content,.practice-intro,.practice-detail,.case-note{text-align:justify}
 .hero-content p,.contact-item p,.contact-wechat p,footer>p,.careers .about-content>p:last-child{text-align:center;-webkit-hyphens:none;hyphens:none}
+
+/* ===== Accessibility: readable type + touch targets (2026-11-19) =====
+   Smallest UI labels -> 12px; body/nav text -> 13px; profile links get
+   a 44px tap target. Appended after the justified-copy overrides. */
+.nav-links a{font-size:.8125rem}
+@media(min-width:1181px){.nav-text span{font-size:.75rem}}
+.lang-btn,.team-info .role,.team-info .languages,.credential .c-label,.credential-no-value .c-label,.news-meta,.blog-card .blog-date,.legal-panel .legal-updated,footer .footer-legal,.case-tag,.case-ref,.award-status,.about-stat .label,.pillar,.news-photo figcaption{font-size:.75rem}
+.practice-card p,.practice-detail,.team-info p,.contact-wechat p,.case-card p,.case-note,.award-card p,.blog-card p,.news-more{font-size:.8125rem}
+.profile-link{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-size:.8125rem}
+@media(max-width:768px){
+  .lang-btn{font-size:.75rem}
+  .pillar{font-size:.75rem;padding:10px 14px}
+}

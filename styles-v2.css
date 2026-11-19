@@ -23,7 +23,7 @@
   --text:#2c2c2c;
   --text-light:#666666;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;background:var(--white)}
 
 /* Language Toggle */
@@ -214,8 +214,8 @@ body.zh .legal-panel h3{font-family:'Noto Serif TC',serif}
 .nav-links{gap:1.4rem}
 
 /* Scroll fade-in */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
-.reveal.visible{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.js .reveal.visible{opacity:1;transform:none}
 
 /* Floating buttons */
 .whatsapp-float{position:fixed;right:20px;bottom:20px;width:54px;height:54px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 4px 14px rgba(0,0,0,.2);z-index:998;transition:transform .3s;text-decoration:none}
@@ -275,3 +275,16 @@ body.zh .legal-panel h3{font-family:'Noto Serif TC',serif}
 p,li{text-align:justify;-webkit-hyphens:none;hyphens:none;word-break:normal;overflow-wrap:normal}
 .about-content,.practice-intro,.practice-detail,.case-note{text-align:justify}
 .hero-content p,.contact-item p,.contact-wechat p,footer>p,.careers .about-content>p:last-child{text-align:center;-webkit-hyphens:none;hyphens:none}
+
+/* ===== Accessibility: readable type + touch targets (2026-11-19) =====
+   Smallest UI labels -> 12px; body/nav text -> 13px; profile links get
+   a 44px tap target. Appended after the justified-copy overrides. */
+.nav-links a{font-size:.8125rem}
+@media(min-width:1181px){.nav-text span{font-size:.75rem}}
+.lang-btn,.team-info .role,.team-info .languages,.credential .c-label,.credential-no-value .c-label,.news-meta,.blog-card .blog-date,.legal-panel .legal-updated,footer .footer-legal,.case-tag,.case-ref,.award-status,.about-stat .label,.pillar,.news-photo figcaption{font-size:.75rem}
+.practice-card p,.practice-detail,.team-info p,.contact-wechat p,.case-card p,.case-note,.award-card p,.blog-card p,.news-more{font-size:.8125rem}
+.profile-link{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-size:.8125rem}
+@media(max-width:768px){
+  .lang-btn{font-size:.75rem}
+  .pillar{font-size:.75rem;padding:10px 14px}
+}

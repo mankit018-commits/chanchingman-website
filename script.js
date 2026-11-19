@@ -212,21 +212,33 @@ function closeLegal(){
 
 /* ===== Added features: scroll-spy, fade-in, scroll-top, PWA ===== */
 (function(){
-    // Scroll fade-in animations
+    // Scroll fade-in animations — progressive enhancement: content stays
+    // visible unless JS successfully installs the observer (and CSS only
+    // hides .reveal inside .js).
+    var rootEl = document.documentElement;
     var sections = Array.prototype.slice.call(document.querySelectorAll('section')).filter(function(s){
         return s.id !== 'home';
     });
+    var showAll = function(){ sections.forEach(function(s){ s.classList.add('visible'); }); };
     if ('IntersectionObserver' in window) {
-        sections.forEach(function(s){ s.classList.add('reveal'); });
-        var io = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    io.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        sections.forEach(function(s){ io.observe(s); });
+        try {
+            rootEl.classList.add('js');
+            sections.forEach(function(s){ s.classList.add('reveal'); });
+            var io = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            sections.forEach(function(s){ io.observe(s); });
+            // Safety net: reveal everything if the observer never fires.
+            window.setTimeout(showAll, 2000);
+        } catch (err) {
+            rootEl.classList.remove('js');
+            sections.forEach(function(s){ s.classList.remove('reveal'); });
+        }
     }
 
     // Scroll-spy: highlight current nav link
